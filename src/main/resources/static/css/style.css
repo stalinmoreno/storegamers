@@ -1,0 +1,135 @@
+
+:root{
+  --colorPrimary: #0057FF;
+  --colorFont: #2E3A59;
+  --colorWhite: #ffffff;
+}
+
+
+.navbar-container {
+  background-color: var(--colorPrimary);
+  padding: 0.8rem 0.5rem;
+  position: relative;
+}
+
+.store-menu {
+  position: fixed;
+  width: 100%;
+  display: grid;
+  z-index: 9;
+}
+
+.store-menu-logo {
+  display: flex;
+  align-items: center;
+  color:var(--colorWhite);
+}
+
+.store-menu-logo i {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.store-menu-logo h4 {
+  font-size: 1.3rem;
+  margin: 0 0.5rem;
+}
+
+.store-menu-logo h4 a {
+  text-decoration: none;
+  color: var(--colorWhite);
+}
+
+.hide {
+  display: none;
+}
+
+.bg-overlay {
+  /* display: none; */
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,.5);
+}
+
+.menu {
+  /* display: none; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--colorWhite);
+  height: 100vh;
+  width: 20rem;
+  z-index: 2;
+  animation: fade duration timing-function delay iteration-count direction fill-mode;
+}
+
+.menu-options {
+  display: grid;
+  row-gap: 1rem;
+  padding: 1rem;
+  font-size: 1.2rem;
+  color: var(--colorFont);
+}
+
+.menu-options a {
+  text-decoration: none;
+  color: var(--colorFont);
+}
+
+.store-menu-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.store-menu-car {
+  display: flex;
+  align-items: center;
+  color:var(--colorWhite);
+  font-size: 1.3rem;
+  cursor: pointer;
+  border-radius: 0.3rem;
+  padding: 0.2rem;
+}
+
+.store-menu-car i {
+  font-size: 1.4rem;
+}
+
+.store-menu-car .badge {
+  background-color: var(--colorWhite);
+  color: var(--colorPrimary);
+  margin-left: 0.2rem;
+}
+
+.store-menu-car:hover {
+  background-color: #053697 ;
+}
+
+.menu-user {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.7rem;
+  color: var(--colorFont);
+}
+
+.menu-user .icon-user {
+  font-size: 4rem;
+}
+
+.menu .box-close i {
+  font-size: 1.5rem;
+  margin:0.5rem;
+  cursor: pointer;
+}
+
+.menu .box-close {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
