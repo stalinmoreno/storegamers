@@ -3,13 +3,18 @@
 <html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'home')}">
 
 <body>
-  <h1>Welcome</h1>
-  <div class="row">
-    <div class="col-md-10">
-      <img class="img-responsive" src="../static/images/logo.png" th:src="@{/images/logo.png}" />
 
+  <div class="container-main">
+    <div class="input-search">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Ingrese el producto a buscar" />
     </div>
+    <i class="fas fa-sliders-h"></i>
   </div>
+
+  <h1>Catálogo</h1>
+
+
 </body>
 
 </html>

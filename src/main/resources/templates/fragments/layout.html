@@ -66,21 +66,16 @@
     <div class="bg-overlay hide" id="bg-overlay"></div>
   </div>
 
+  <th:block th:include="${template}" />
 
-  <div class="container-fluid">
-    <div class="container xd-container pt-5">
-
-      <th:block th:include="${template}" />
-
-      <div class="container">
-        <div class="row">
-          <div class="col-12 text-center">
-            Copyright @ 2021 StoreGamers
-          </div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        Copyright @ 2021 StoreGamers
       </div>
     </div>
   </div>
+
 
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
