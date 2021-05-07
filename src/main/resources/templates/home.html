@@ -5,14 +5,231 @@
 <body>
 
   <div class="container-main">
+
     <div class="input-search">
-      <i class="fas fa-search"></i>
-      <input type="text" placeholder="Ingrese el producto a buscar" />
+
+      <div class="input-text-search">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Ingrese el producto a buscar" />
+      </div>
+      <i class="fas fa-sliders-h"></i>
+
     </div>
-    <i class="fas fa-sliders-h"></i>
+
   </div>
 
-  <h1>Catálogo</h1>
+  <div class="container">
+
+    <b>Categorías</b>
+
+    <!-- Slider main container -->
+    <div class="swiper-container mySwiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <!-- <div class="swiper-slide">
+          <a href="#">Categoria 1</a>
+          <a href="#">Categoria 2</a>
+          <a href="#">Categoria 3</a>
+          <a href="#">Categoria 4</a>
+          <a href="#">Categoria 5</a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#">Categoria 1</a>
+          <a href="#">Categoria 2</a>
+          <a href="#">Categoria 3</a>
+          <a href="#">Categoria 4</a>
+          <a href="#">Categoria 5</a>
+        </div> -->
+
+        <div class="swiper-slide">Categoria 1</div>
+        <div class="swiper-slide">Categoria 2</div>
+        <div class="swiper-slide">Categoria 3</div>
+        <div class="swiper-slide">Categoria 4</div>
+        <div class="swiper-slide">Categoria 5</div>
+        <div class="swiper-slide">Categoria 6</div>
+        <div class="swiper-slide">Categoria 7</div>
+        <div class="swiper-slide">Categoria 8</div>
+        <div class="swiper-slide">Categoria 9</div>
+
+      </div>
+      <!-- If we need pagination -->
+      <!-- <div class="swiper-pagination"></div> -->
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+      <!-- If we need scrollbar -->
+      <!-- <div class="swiper-scrollbar"></div> -->
+    </div>
+
+    <!--<h1>Catálogo</h1> -->
+
+    <div class="container-calalogue">
+
+      <div class="card-product">
+        <div class="card-image">
+          <img class="img-responsive" src="../static/images/logo.png" th:src="@{/images/logo.png}" />
+        </div>
+        <div class="card-stars">
+          <!-- <div class="clasificacion">
+            <input id="radio1" type="radio" name="estrellas" value="5">
+            <span for="radio1">★</span>
+            <input id="radio2" type="radio" name="estrellas" value="4">
+            <span for="radio2">★</span>
+            <input id="radio3" type="radio" name="estrellas" value="3">
+            <span for="radio3">★</span>
+            <input id="radio4" type="radio" name="estrellas" value="2">
+            <span for="radio4">★</span>
+            <input id="radio5" type="radio" name="estrellas" value="1">
+            <span for="radio5">★</span>
+          </div> -->
+        </div>
+        <div class="card-product-body">
+          <div class="card-text">
+            Logitech - Teclado + Mouse
+          </div>
+          <div class="card-action">
+            <span>S/.119.00</span>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-product">
+        <div class="card-image">
+          <img class="img-responsive" src="../static/images/logo.png" th:src="@{/images/logo.png}" />
+        </div>
+        <div class="card-stars">
+
+        </div>
+        <div class="card-product-body">
+          <div class="card-text">
+            Logitech - Teclado + Mouse
+          </div>
+          <div class="card-action">
+            <span>S/.119.00</span>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-product">
+        <div class="card-image">
+          <img class="img-responsive" src="../static/images/logo.png" th:src="@{/images/logo.png}" />
+        </div>
+        <div class="card-stars">
+
+        </div>
+        <div class="card-product-body">
+          <div class="card-text">
+            Logitech - Teclado + Mouse
+          </div>
+          <div class="card-action">
+            <span>S/.119.00</span>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-product">
+        <div class="card-image">
+          <img class="img-responsive" src="../static/images/logo.png" th:src="@{/images/logo.png}" />
+        </div>
+        <div class="card-stars">
+
+        </div>
+        <div class="card-product-body">
+          <div class="card-text">
+            Logitech - Teclado + Mouse
+          </div>
+          <div class="card-action">
+            <span>S/.119.00</span>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-product">
+        <div class="card-image">
+          <img class="img-responsive" src="../static/images/logo.png" th:src="@{/images/logo.png}" />
+        </div>
+        <div class="card-stars">
+
+        </div>
+        <div class="card-product-body">
+          <div class="card-text">
+            Logitech - Teclado + Mouse
+          </div>
+          <div class="card-action">
+            <span>S/.119.00</span>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-product">
+        <div class="card-image">
+          <img class="img-responsive" src="../static/images/logo.png" th:src="@{/images/logo.png}" />
+        </div>
+        <div class="card-stars">
+
+        </div>
+        <div class="card-product-body">
+          <div class="card-text">
+            Logitech - Teclado + Mouse
+          </div>
+          <div class="card-action">
+            <span>S/.119.00</span>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-product">
+        <div class="card-image">
+          <img class="img-responsive" src="../static/images/logo.png" th:src="@{/images/logo.png}" />
+        </div>
+        <div class="card-stars">
+
+        </div>
+        <div class="card-product-body">
+          <div class="card-text">
+            Logitech - Teclado + Mouse
+          </div>
+          <div class="card-action">
+            <span>S/.119.00</span>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-product">
+        <div class="card-image">
+          <img class="img-responsive" src="../static/images/logo.png" th:src="@{/images/logo.png}" />
+        </div>
+        <div class="card-stars">
+
+        </div>
+        <div class="card-product-body">
+          <div class="card-text">
+            Logitech - Teclado + Mouse
+          </div>
+          <div class="card-action">
+            <span>S/.119.00</span>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+
 
 
 </body>

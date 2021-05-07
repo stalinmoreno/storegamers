@@ -130,3 +130,51 @@
 .container-main {
   padding-top: 54.75px;
 }
+
+/* slider categorias */
+
+.swiper-container {
+  width: auto;
+  height: 50px;
+  padding: 0 4rem;
+  margin-bottom: 1rem;
+}
+
+.swiper-slide {
+        /* text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+      
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center; */
+
+  text-align: center;
+        font-size: 14px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+
+      }

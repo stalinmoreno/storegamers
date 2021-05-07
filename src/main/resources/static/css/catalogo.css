@@ -1,9 +1,97 @@
 
-.row-search {
-  border: 1px solid blue;
-}
+/* Search */
 
 .input-search {
-  border: 1px solid red;
+  background-color: var(--colorPrimary);
+  padding-bottom: 1rem;
+  display: flex;
 }
 
+.input-text-search {
+  background-color: var(--colorWhite);
+  margin: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  padding: 0.2rem;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+.input-text-search i {
+  padding: 0 0.3rem;
+}
+
+.input-text-search input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 0.9rem;
+  padding: 0.3rem 0.1rem;
+  color: var(--colorFont);
+}
+
+.input-search > i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1rem 0 0.5rem;
+  font-size: 1.25rem;
+  color: var(--colorWhite);
+  cursor:pointer;
+}
+
+/* Catalogue */
+
+.container-calalogue{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 	1rem;
+  color: var(--colorFont);
+}
+
+.card-product {
+  max-width: 13rem;
+  /*height: 15rem;*/
+  background-color: var(--colorWhite);
+  justify-self: center;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.card-image {
+  overflow: hidden;
+  border-radius: 0.5rem;
+  height: 12rem;
+  display: flex;
+  align-items: center;
+}
+
+.card-image img{
+  width: 100%;
+}
+
+.card-product-body {
+  margin-top: 0.4rem;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+.card-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.card-action span {
+  font-weight: bold;
+}
+
+.card-action i {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--colorPrimary);
+}
