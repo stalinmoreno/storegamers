@@ -177,3 +177,7 @@
   font-weight: bold;
   color: var(--colorFont);
 }
+
+.modal-open{
+  padding-right: 0 !important;
+}
