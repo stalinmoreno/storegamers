@@ -5,32 +5,17 @@
 <body>
 
 
-
   <div class="container-main">
-
-
-
-
-
     <div class="input-search">
-
       <div class="input-text-search">
         <i class="fas fa-search"></i>
         <input type="text" placeholder="Ingrese el producto a buscar" />
       </div>
       <i class="fas fa-sliders-h" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
-
     </div>
-
   </div>
 
   <div class="container">
-
-
-
-
-
-
 
     <div class="mt-2 mb-2">
       <span class="text-subtitle">Categorías</span>
@@ -38,19 +23,7 @@
 
     <!-- Slider main container -->
     <div class="swiper-container mySwiper">
-      <!-- Additional required wrapper -->
       <div class="swiper-wrapper">
-        <!-- Slides -->
-
-        <!-- <div class="swiper-slide"><a href="#">Categoria 1</a></div>
-        <div class="swiper-slide"><a href="#">Categoria 2</a></div>
-        <div class="swiper-slide"><a href="#">Categoria 3</a></div>
-        <div class="swiper-slide"><a href="#">Categoria 4</a></div>
-        <div class="swiper-slide"><a href="#">Categoria 5</a></div>
-        <div class="swiper-slide"><a href="#">Categoria 6</a></div>
-        <div class="swiper-slide"><a href="#">Categoria 7</a></div>
-        <div class="swiper-slide"><a href="#">Categoria 8</a></div>
-        <div class="swiper-slide"><a href="#">Categoria 9</a></div> -->
 
         <a href="#" class="swiper-slide active">Todo</a>
         <a href="#" class="swiper-slide">Categoria 2</a>
@@ -83,20 +56,20 @@
     <div class="container-calalogue">
 
 
-      <!-- <div th:each="catalogue : ${catalogue}" class="card-product">
-              <div class="card-image">
-                <img class="img-responsive" src="../static/images/logo.png" th:src="@{catalogue.imageurl}" />
-              </div>
-              <div class="card-stars">
-              </div>
-              <div class="card-product-body">
-                <div th:text="${catalogue.name}" class="card-text"></div>
-                <div class="card-action">
-                  <span th:text="${catalogue.price}"></span>
-                  <i class="fas fa-plus-circle"></i>
-                </div>
-              </div>
-            </div> -->
+      <!-- <div th:each="product : ${products}" class="card-product">
+        <div class="card-image">
+          <img class="img-responsive" src="../static/images/logo.png" th:src="@{product.image_url}" />
+        </div>
+        <div class="card-stars">
+        </div>
+        <div class="card-product-body">
+          <div th:text="${product.name}" class="card-text"></div>
+          <div class="card-action">
+            <span th:text="${product.price}"></span>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+        </div>
+      </div> -->
 
 
       <div class="card-product">
