@@ -1,14 +1,12 @@
 package com.storegamers.appweb.model;
 
-
 public class Cliente {
 
     private String nombres;
     private String correo;
     private String confirmarcorreo;
-    private Long contraseña;
-    private Long repetircontraseña;
-
+    private Long contrasenia;
+    private Long repetircontrasenia;
 
     public String getNombres() {
         return this.nombres;
@@ -34,28 +32,20 @@ public class Cliente {
         this.confirmarcorreo = confirmarcorreo;
     }
 
-    public Long getContraseña() {
-        return this.contraseña;
+    public Long getContrasenia() {
+        return this.contrasenia;
     }
 
-    public void setContraseña(Long contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasenia(Long contrasenia) {
+        this.contrasenia = contrasenia;
     }
 
-    public Long getRepetircontraseña() {
-        return this.repetircontraseña;
+    public Long getRepetircontrasenia() {
+        return this.repetircontrasenia;
     }
 
-    public void setRepetircontraseña(Long repetircontraseña) {
-        this.repetircontraseña = repetircontraseña;
+    public void setRepetircontrasenia(Long repetircontrasenia) {
+        this.repetircontrasenia = repetircontrasenia;
     }
-    
-
-
-
-
-
-
-
 
 }
