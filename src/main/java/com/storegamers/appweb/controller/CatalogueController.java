@@ -13,18 +13,18 @@ import org.springframework.ui.Model;
 @Controller
 public class CatalogueController {
 
-  private static final String INDEX = "/";
-  private final ProductRepository productsData;
+  // private static final String INDEX = "/";
+  // private final ProductRepository productsData;
 
-  public CatalogueController(ProductRepository productsData) {
-    this.productsData = productsData;
-  }
+  // public CatalogueController(ProductRepository productsData) {
+  // this.productsData = productsData;
+  // }
 
-  @GetMapping("/")
-  public String index(Model model) {
-    List<Product> listProduct = this.productsData.getAllProducts();
-    model.addAttribute("products", listProduct);
-    return INDEX;
-  }
+  // @GetMapping("/")
+  // public String index(Model model) {
+  // // List<Product> listProduct = this.productsData.getAllProducts();
+  // // model.addAttribute("products", listProduct);
+  // // return INDEX;
+  // }
 
 }

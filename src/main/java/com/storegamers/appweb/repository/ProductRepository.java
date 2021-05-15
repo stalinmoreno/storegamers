@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Integer> {
-  @Query(value = "select * from t_product p where p.status = 1")
-  List<Product> getAllProducts();
+  // @Query(value = "select p.* from t_product p where p.status = 1")
+  // List<Product> getAllProducts();
 }
