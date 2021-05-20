@@ -46,9 +46,11 @@
 .container-calalogue{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  row-gap: 	1rem;
+  /*row-gap: 	1rem;*/
+  gap: 0.5rem;
   color: var(--colorFont);
 }
+
 
 .card-product {
   max-width: 13rem;
@@ -58,6 +60,12 @@
   border-radius: 0.5rem;
   padding: 1rem;
 }
+
+.card-product a {
+  text-decoration: none;
+  color:var(--colorFont);;
+}
+
 
 .card-image {
   overflow: hidden;
@@ -73,18 +81,19 @@
 
 .card-product-body {
   margin-top: 0.4rem;
+  text-align: center;
 }
 
 .card-text {
   font-size: 0.9rem;
-  margin-top: 1rem;
+  margin-top: 0.2rem;
 }
 
 .card-action {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-top: 0.5rem;
+  justify-content: center;
+  /*margin-top: 0.5rem;*/
 }
 
 .card-action span {
@@ -95,4 +104,13 @@
   font-size: 1.5rem;
   cursor: pointer;
   color: var(--colorPrimary);
+}
+
+/* View product */
+
+.panel {
+  background-color: var(--colorWhite);
+  margin: 0.5rem 0;
+  border-radius: 0.5rem;
+  padding: 1rem;
 }

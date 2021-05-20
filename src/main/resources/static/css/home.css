@@ -181,3 +181,30 @@
 .modal-open{
   padding-right: 0 !important;
 }
+
+.swiper-button-prev::after, .swiper-button-next::after {
+  
+ color: var(--colorFont);
+  box-sizing: content-box;
+  font-size: 1rem;
+  /* background-color: rgb(34, 33, 33, 0.3);
+  padding: 0.5rem;
+  border-radius: 50%; */
+  font-weight: bold;
+}
+
+.swiper-button-prev.swiper-button-disabled, .swiper-button-next.swiper-button-disabled {
+  display: none;
+}
+
+/* style Footer */
+
+.footer {
+  padding: 1rem;
+  background-color: var(--colorFont);
+  color: var(--colorWhite);
+  margin-top: 1rem;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+}

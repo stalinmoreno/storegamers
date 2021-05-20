@@ -56,176 +56,44 @@
     <div class="container-calalogue">
 
 
-      <!-- <div th:each="product : ${products}" class="card-product">
-        <div class="card-image">
-          <img class="img-responsive" src="../static/images/logo.png" th:src="@{product.image_url}" />
+      <div th:each="product:${products}" class="card-product">
+        <a th:href="@{'/catalogo/viewProduct/__${product.id}__'}">
+          <div class="card-image">
+            <img class="img-responsive" src="../static/images/logo.png" th:src="${product.image_url}" />
+          </div>
+          <!-- <div class="card-stars"></div> -->
+          <div class="card-product-body">
+            <div th:text="${product.name}" class="card-text"></div>
+            <div class="card-action">
+              <span th:text="${product.MonedaPrice}"></span>
+              <!-- <i class="fas fa-plus-circle"></i> -->
+            </div>
+
+          </div>
+        </a>
+        <div class="d-grid gap-2">
+          <button class="btn btn-outline-primary btn-sm">Agregar</button>
         </div>
-        <div class="card-stars">
+      </div>
+
+
+      <!-- <div class="card-product">
+        <div class="card-image">
+          <img class="img-responsive" src="../static/images/logo.png" th:src="@{/images/logo.png}" />
         </div>
         <div class="card-product-body">
-          <div th:text="${product.name}" class="card-text"></div>
+          <div class="card-text">
+            Logitech - Teclado + Mouse
+          </div>
           <div class="card-action">
-            <span th:text="${product.price}"></span>
+            <span>S/.119.00</span>
             <i class="fas fa-plus-circle"></i>
           </div>
         </div>
       </div> -->
 
 
-      <div class="card-product">
-        <div class="card-image">
-          <img class="img-responsive" src="../static/images/logo.png" th:src="@{/images/logo.png}" />
-        </div>
-        <div class="card-stars">
-          <!-- <div class="clasificacion">
-            <input id="radio1" type="radio" name="estrellas" value="5">
-            <span for="radio1">★</span>
-            <input id="radio2" type="radio" name="estrellas" value="4">
-            <span for="radio2">★</span>
-            <input id="radio3" type="radio" name="estrellas" value="3">
-            <span for="radio3">★</span>
-            <input id="radio4" type="radio" name="estrellas" value="2">
-            <span for="radio4">★</span>
-            <input id="radio5" type="radio" name="estrellas" value="1">
-            <span for="radio5">★</span>
-          </div> -->
-        </div>
-        <div class="card-product-body">
-          <div class="card-text">
-            Logitech - Teclado + Mouse
-          </div>
-          <div class="card-action">
-            <span>S/.119.00</span>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-        </div>
-      </div>
 
-      <div class="card-product">
-        <div class="card-image">
-          <img class="img-responsive" src="../static/images/logo.png" th:src="@{/images/logo.png}" />
-        </div>
-        <div class="card-stars">
-
-        </div>
-        <div class="card-product-body">
-          <div class="card-text">
-            Logitech - Teclado + Mouse
-          </div>
-          <div class="card-action">
-            <span>S/.119.00</span>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-product">
-        <div class="card-image">
-          <img class="img-responsive" src="../static/images/logo.png" th:src="@{/images/logo.png}" />
-        </div>
-        <div class="card-stars">
-
-        </div>
-        <div class="card-product-body">
-          <div class="card-text">
-            Logitech - Teclado + Mouse
-          </div>
-          <div class="card-action">
-            <span>S/.119.00</span>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-product">
-        <div class="card-image">
-          <img class="img-responsive" src="../static/images/logo.png" th:src="@{/images/logo.png}" />
-        </div>
-        <div class="card-stars">
-
-        </div>
-        <div class="card-product-body">
-          <div class="card-text">
-            Logitech - Teclado + Mouse
-          </div>
-          <div class="card-action">
-            <span>S/.119.00</span>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-product">
-        <div class="card-image">
-          <img class="img-responsive" src="../static/images/logo.png" th:src="@{/images/logo.png}" />
-        </div>
-        <div class="card-stars">
-
-        </div>
-        <div class="card-product-body">
-          <div class="card-text">
-            Logitech - Teclado + Mouse
-          </div>
-          <div class="card-action">
-            <span>S/.119.00</span>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-product">
-        <div class="card-image">
-          <img class="img-responsive" src="../static/images/logo.png" th:src="@{/images/logo.png}" />
-        </div>
-        <div class="card-stars">
-
-        </div>
-        <div class="card-product-body">
-          <div class="card-text">
-            Logitech - Teclado + Mouse
-          </div>
-          <div class="card-action">
-            <span>S/.119.00</span>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-product">
-        <div class="card-image">
-          <img class="img-responsive" src="../static/images/logo.png" th:src="@{/images/logo.png}" />
-        </div>
-        <div class="card-stars">
-
-        </div>
-        <div class="card-product-body">
-          <div class="card-text">
-            Logitech - Teclado + Mouse
-          </div>
-          <div class="card-action">
-            <span>S/.119.00</span>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-product">
-        <div class="card-image">
-          <img class="img-responsive" src="../static/images/logo.png" th:src="@{/images/logo.png}" />
-        </div>
-        <div class="card-stars">
-
-        </div>
-        <div class="card-product-body">
-          <div class="card-text">
-            Logitech - Teclado + Mouse
-          </div>
-          <div class="card-action">
-            <span>S/.119.00</span>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-        </div>
-      </div>
 
     </div>
 
@@ -243,12 +111,17 @@
         <div class="modal-body">
           <div class="row">
             <label>Marcas</label>
+
             <div class="col-md-12">
-              <button type="button" class="btn btn-primary">Marca 1</button>
-              <button type="button" class="btn btn-outline-dark">Marca 2</button>
-              <button type="button" class="btn btn-outline-dark">Marca 3</button>
-              <button type="button" class="btn btn-outline-dark">Marca 4</button>
+              <button type="button" class="btn btn-primary mt-1">Marca 1</button>
+              <button type="button" class="btn btn-outline-dark mt-1">Marca 2</button>
+              <button type="button" class="btn btn-outline-dark mt-1">Marca 3</button>
+              <button type="button" class="btn btn-outline-dark mt-1">Marca 4</button>
+              <button type="button" class="btn btn-outline-dark mt-1">Marca 2</button>
+              <button type="button" class="btn btn-outline-dark mt-1">Marca 3</button>
+              <button type="button" class="btn btn-outline-dark mt-1">Marca 4</button>
             </div>
+
           </div>
           <div class="row">
             <label>Rangos</label>

@@ -10,9 +10,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.crypto.dsig.keyinfo.RetrievalMethod;
+
+import com.sun.tools.javac.util.Convert;
 
 import lombok.*;
 
+@Data
 @Getter
 @Setter
 @NoArgsConstructor
@@ -24,12 +28,16 @@ public class Product {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private long idproduct;
-  private String name;
-  private String descripcion;
-  private BigDecimal price;
-  private String image_url;
-  private int stock;
-  private String status;
+  public Integer id;
+  public String name;
+  public String description;
+  public BigDecimal price;
+  public String image_url;
+  public Integer stock;
+  public Integer status;
+
+  public String MonedaPrice() {
+    return "S/. " + price;
+  }
 
 }
