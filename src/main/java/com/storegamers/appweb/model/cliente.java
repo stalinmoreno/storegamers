@@ -1,16 +1,14 @@
 package com.storegamers.appweb.model;
 
-
-
 import javax.persistence.*;
 
-import lombok.*;
+//import lombok.*;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-//@Builder
+//@Getter
+//@Setter
+//@NoArgsConstructor
+//@AllArgsConstructor
+// @Builder
 @Entity
 @Table(name = "t_customer")
 public class Cliente {
@@ -25,8 +23,6 @@ public class Cliente {
     @JoinColumn(name = "user_id")
     private Usuario user;
 
-
-    /*
     public Cliente() {
     }
 
@@ -68,7 +64,5 @@ public class Cliente {
     public void setUser(Usuario user) {
         this.user = user;
     }
-     */
+
 }
-
-

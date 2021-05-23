@@ -24,12 +24,17 @@ public class Product {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private long idproduct;
-  private String name;
-  private String descripcion;
-  private BigDecimal price;
-  private String image_url;
-  private int stock;
-  private String status;
+
+  public Integer id;
+  public String name;
+  public String description;
+  public BigDecimal price;
+  public String image_url;
+  public Integer stock;
+  public Integer status;
+
+  public String MonedaPrice() {
+    return "S/. " + price;
+  }
 
 }

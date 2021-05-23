@@ -13,8 +13,10 @@
   <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css} " />
   <link th:rel="stylesheet" th:href="@{/webjars/bootstrap-datepicker/css/bootstrap-datepicker.css}" />
   <link th:rel="stylesheet" th:href="@{/webjars/bootstrap-datepicker/css/bootstrap-datepicker.standalone.css}" />
-
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <link th:rel="stylesheet" th:href="@{/css/style.css}">
+
 
 </head>
 
@@ -30,7 +32,7 @@
 
         </div>
         <div class="store-menu-car">
-          <i class="fas fa-shopping-cart"></i><span class="badge">0</span>
+          <a href="/proforma/index"><i class="fas fa-shopping-cart"></i><span class="badge">0</span></a>
         </div>
       </div>
 
@@ -54,7 +56,7 @@
           <a href="#">
             <i class="fas fa-lock"></i> Cambiar contraseña
           </a>
-          <a href="#">
+          <a href="/usuario/login">
             <i class="fas fa-sign-out-alt"></i> Cerrar sesión
           </a>
         </div>
@@ -68,13 +70,15 @@
 
   <th:block th:include="${template}" />
 
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        Copyright @ 2021 StoreGamers
-      </div>
+
+
+  <div class="footer">
+    <div class="text-center">
+      Copyright @ 2021 StoreGamers
     </div>
   </div>
+
+
 
 
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
@@ -82,6 +86,8 @@
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
   <script th:src="@{/webjars/bootstrap-datepicker/js/bootstrap-datepicker.min.js}"></script>
   <script th:src="@{/webjars/jquery.inputmask/jquery.inputmask.min.js}"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script th:src="@{/js/home/home.js}"></script>
 
 </body>

@@ -1,7 +1,5 @@
 package com.storegamers.appweb.controller;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,26 +10,25 @@ import com.storegamers.appweb.model.Cliente;
 import com.storegamers.appweb.model.Usuario;
 import com.storegamers.appweb.repository.ClienteRepository;
 import com.storegamers.appweb.repository.UsuarioRepository;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.validation.Valid;
 
 @Controller
-//@RequiredArgsConstructor
+// @RequiredArgsConstructor
 public class ClienteController {
-    
-    private static final String INDEX ="cliente/create"; 
-    private static String MODEL_CONTACT="client";
-    //@Autowired
+
+    private static final String INDEX = "cliente/create";
+    private static final String INDEX_LOGIN = "usuario/login";
+    private static String MODEL_CONTACT = "client";
+    // @Autowired
     private final ClienteRepository repoCliente;
 
     private final UsuarioRepository repoUsuario;
 
-
-    public ClienteController(ClienteRepository clienteRepository, UsuarioRepository usuarioRepository){
+    public ClienteController(ClienteRepository clienteRepository, UsuarioRepository usuarioRepository) {
         this.repoCliente = clienteRepository;
         this.repoUsuario = usuarioRepository;
-    }      
+    }
 
     @GetMapping("/cliente/create")
     public String index(Model model) {
@@ -40,18 +37,22 @@ public class ClienteController {
     }
 
     @PostMapping("/cliente/create")
-    public String createSubmitForm(Model model, @Valid Cliente cliente, BindingResult result ){
-        if(result.hasFieldErrors()) {
+    public String createSubmitForm(Model model, @Valid Cliente cliente, BindingResult result) {
+
+        String page = INDEX;
+        if (result.hasFieldErrors()) {
             model.addAttribute("mensaje", "No se registro un cliente");
-        }else{
+        } else {
+
             Usuario user = cliente.getUser();
             repoUsuario.save(user);
             repoUsuario.flush();
             repoCliente.save(cliente);
             model.addAttribute(MODEL_CONTACT, cliente);
             model.addAttribute("mensaje", "Se registro un cliente");
+            page = "redirect:/" + INDEX_LOGIN;
         }
-        return INDEX;
+        return page;
     }
 
 }

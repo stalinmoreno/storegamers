@@ -130,3 +130,81 @@
 .container-main {
   padding-top: 54.75px;
 }
+
+/* slider categorias */
+
+.swiper-container {
+  width: auto;
+  height: 50px;
+  /* padding: 0 3rem; */
+  margin-bottom: 1rem;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 14px;
+  background: #fff;
+  border: 1px solid var(--colorFont);
+  border-radius: 0.5rem;
+  text-decoration: none !important;
+  outline: none;
+  color: var(--colorFont);
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-container .active {
+  background-color: var(--colorPrimary);
+  color: var(--colorWhite);
+  border:none;
+}
+
+
+
+.text-subtitle {
+  /*margin: 1rem 0;*/
+  font-weight: bold;
+  color: var(--colorFont);
+}
+
+.modal-open{
+  padding-right: 0 !important;
+}
+
+.swiper-button-prev::after, .swiper-button-next::after {
+  
+ color: var(--colorFont);
+  box-sizing: content-box;
+  font-size: 1rem;
+  /* background-color: rgb(34, 33, 33, 0.3);
+  padding: 0.5rem;
+  border-radius: 50%; */
+  font-weight: bold;
+}
+
+.swiper-button-prev.swiper-button-disabled, .swiper-button-next.swiper-button-disabled {
+  display: none;
+}
+
+/* style Footer */
+
+.footer {
+  padding: 1rem;
+  background-color: var(--colorFont);
+  color: var(--colorWhite);
+  margin-top: 1rem;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+}
