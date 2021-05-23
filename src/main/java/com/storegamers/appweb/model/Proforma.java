@@ -1,4 +1,5 @@
 package com.storegamers.appweb.model;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -24,16 +25,16 @@ import lombok.*;
 @Table(name = "t_proforma")
 
 public class Proforma {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "producto_id")    
+    @JoinColumn(name = "producto_id")
     private Producto product;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private Usuario user;
     private BigDecimal precio;
-    private Integer cantidad;   
+    private Integer cantidad;
 }
