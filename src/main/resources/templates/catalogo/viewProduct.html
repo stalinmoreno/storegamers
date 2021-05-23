@@ -5,12 +5,12 @@
 <body>
 
   <div class="container-fluid container-main">
-    <div class="container xd-container">
+    <div class="container xd-container" th:object="${product}">
 
-      <div class="panel" th:object="${product}">
-        <!-- <img class="img-responsive" src="../static/images/logo.png" th:src="*{image_url}" /> -->
-        <img class="img-responsive" src="../static/images/logo.png" th:src="@{/images/logo.png}" />
-        <div class="text-subtitle">Pes 2021 Ps4 Pro Evolution Soccer</div>
+      <div class="panel text-center">
+        <a href="/"><i class="fas fa-arrow-circle-left"></i></a>
+        <img class="img-responsive" src="../static/images/logo.png" th:src="*{image_url}" />
+        <div class="text-subtitle mt-2" th:text="*{name}"></div>
       </div>
 
       <div class="accordion" id="accordionExample">
@@ -23,12 +23,7 @@
           </h2>
           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
             data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione facilis sapiente cumque inventore
-              corporis
-              suscipit aperiam aliquid necessitatibus illum. Nihil error nulla amet vitae totam autem nobis labore
-              accusantium. Sed.
-            </div>
+            <div class="accordion-body" th:text="*{description}"></div>
           </div>
         </div>
         <div class="accordion-item">

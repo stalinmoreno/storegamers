@@ -16,24 +16,21 @@ public class CatalogueController {
   // private static final String INDEX = "catalogo/viewProduct";
   // private final ProductRepository productsData;
 
+  private static final String VIEW_PRODUCT = "catalogo/viewProduct";
+  private final ProductRepository productsData;
+  private static String MODEL_PRODUCT = "product";
+
   // private static String MODEL_PRODUCT = "product";
 
-  // public CatalogueController(ProductRepository productsData) {
-  // this.productsData = productsData;
-  // }
+  public CatalogueController(ProductRepository productsData) {
+    this.productsData = productsData;
+  }
 
-  // @GetMapping("/catalogo/viewProduct")
-  // public String viewProduct(Model model) {
-  // List<Product> listProduct = this.productsData.getAllProducts();
-  // model.addAttribute("products", listProduct);
-  // return INDEX;
-  // }
-
-  // @GetMapping("/catalogo/viewProduct/{id}")
-  // public String viewProduct(@PathVariable("id") int id, Model model) {
-  // Product product = this.productsData.getOne(id);
-  // model.addAttribute(MODEL_PRODUCT, product);
-  // return INDEX;
-  // }
+  @GetMapping("/catalogo/viewProduct/{id}")
+  public String viewProduct(@PathVariable("id") Integer id, Model model) {
+    Product product = this.productsData.getOneProduct(id);
+    model.addAttribute(MODEL_PRODUCT, product);
+    return VIEW_PRODUCT;
+  }
 
 }

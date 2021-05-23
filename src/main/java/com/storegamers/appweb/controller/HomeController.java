@@ -30,11 +30,11 @@ public class HomeController {
     return INDEX;
   }
 
-  @GetMapping("/catalogo/viewProduct/{id}")
-  public String viewProduct(@PathVariable("id") Integer id, Model model) {
-    Product product = this.productsData.getOne(id);
-    model.addAttribute(MODEL_PRODUCT, product);
-    return VIEW_PRODUCT;
-  }
+  // @GetMapping("/catalogo/viewProduct/{id}")
+  // public String viewProduct(@PathVariable("id") Integer id, Model model) {
+  // Product product = this.productsData.getOne(id);
+  // model.addAttribute(MODEL_PRODUCT, product);
+  // return VIEW_PRODUCT;
+  // }
 
 }
