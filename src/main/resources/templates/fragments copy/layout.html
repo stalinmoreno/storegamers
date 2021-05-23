@@ -1,0 +1,89 @@
+<!doctype html>
+<html th:fragment="layout (template, menu)">
+
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min-jsf.css}" />
+  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap-jsf.css}" />
+  <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css} " />
+  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap-datepicker/css/bootstrap-datepicker.css}" />
+  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap-datepicker/css/bootstrap-datepicker.standalone.css}" />
+
+  <link th:rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+  <div class="store-menu ">
+    <div class="navbar-container">
+      <div class="store-menu-top">
+        <div class="store-menu-logo">
+
+          <i class="fas fa-bars" id="btnMenu" name="menu"></i>
+          <h4><a href="/">Store Gamers</a></h4>
+
+        </div>
+        <div class="store-menu-car">
+          <i class="fas fa-shopping-cart"></i><span class="badge">0</span>
+        </div>
+      </div>
+
+      <div class="menu hide" id="menu">
+
+        <div class="box-close">
+          <i class="fas fa-times-circle icon-close" id="btnClose"></i>
+        </div>
+        <div class="menu-user">
+          <i class="fas fa-user-circle icon-user"></i>
+          <h3>Hola User</h3>
+        </div>
+
+        <div class="menu-options">
+          <a href="/orden/index">
+            <i class="fas fa-shopping-bag"></i> Mis ordenes
+          </a>
+          <a href="#">
+            <i class="fas fa-address-card"></i> Datos personales
+          </a>
+          <a href="#">
+            <i class="fas fa-lock"></i> Cambiar contraseña
+          </a>
+          <a href="#">
+            <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+          </a>
+        </div>
+
+
+      </div>
+
+    </div>
+    <div class="bg-overlay hide" id="bg-overlay"></div>
+  </div>
+
+  <th:block th:include="${template}" />
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        Copyright @ 2021 StoreGamers
+      </div>
+    </div>
+  </div>
+
+
+  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+  <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+  <script th:src="@{/webjars/bootstrap-datepicker/js/bootstrap-datepicker.min.js}"></script>
+  <script th:src="@{/webjars/jquery.inputmask/jquery.inputmask.min.js}"></script>
+  <script th:src="@{/js/home/home.js}"></script>
+
+</body>
+
+</html>
