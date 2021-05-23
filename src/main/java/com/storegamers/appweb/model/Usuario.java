@@ -1,26 +1,26 @@
 package com.storegamers.appweb.model;
 
-public class Usuario{
-    
-    private String username;
-    private Long contraseña;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
 
+import java.io.Serializable;
 
+import javax.persistence.Column;
 
-    public String getUsername() {
-        return this.username;
-    }
+import lombok.*;
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
+@Table(name = "t_user")
+public class Usuario implements Serializable{
+    @Id
+    @Column(name = "user_id")
+    private String userID;
+    private String password;
 
-    public Long getContraseña() {
-        return this.contraseña;
-    }
-
-    public void setContraseña(Long contraseña) {
-        this.contraseña = contraseña;
-    }
-    
 }

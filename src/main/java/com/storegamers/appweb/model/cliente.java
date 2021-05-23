@@ -1,51 +1,74 @@
 package com.storegamers.appweb.model;
 
+
+
+import javax.persistence.*;
+
+import lombok.*;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+//@Builder
+@Entity
+@Table(name = "t_customer")
 public class Cliente {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    @Column(name = "correo")
+    private String email;
+    private String name;
 
-    private String nombres;
-    private String correo;
-    private String confirmarcorreo;
-    private Long contrasenia;
-    private Long repetircontrasenia;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private Usuario user;
 
-    public String getNombres() {
-        return this.nombres;
+
+    /*
+    public Cliente() {
     }
 
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
+    public Cliente(Integer id, String email, String name, Usuario user) {
+        this.id = id;
+        this.email = email;
+        this.name = name;
+        this.user = user;
     }
 
-    public String getCorreo() {
-        return this.correo;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getConfirmarcorreo() {
-        return this.confirmarcorreo;
+    public String getEmail() {
+        return email;
     }
 
-    public void setConfirmarcorreo(String confirmarcorreo) {
-        this.confirmarcorreo = confirmarcorreo;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public Long getContrasenia() {
-        return this.contrasenia;
+    public String getName() {
+        return name;
     }
 
-    public void setContrasenia(Long contrasenia) {
-        this.contrasenia = contrasenia;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Long getRepetircontrasenia() {
-        return this.repetircontrasenia;
+    public Usuario getUser() {
+        return user;
     }
 
-    public void setRepetircontrasenia(Long repetircontrasenia) {
-        this.repetircontrasenia = repetircontrasenia;
+    public void setUser(Usuario user) {
+        this.user = user;
     }
-
+     */
 }
+
+
