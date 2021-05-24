@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'viewProduct')}">
+
+<body>
+
+  <div class="container-fluid container-main">
+    <div class="container xd-container" th:object="${product}">
+
+      <div class="panel text-center">
+        <a href="/"><i class="fas fa-arrow-circle-left"></i></a>
+        <img class="img-responsive" src="../static/images/logo.png" th:src="*{image_url}" />
+        <div class="text-subtitle mt-2" th:text="*{name}"></div>
+      </div>
+
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+              aria-expanded="true" aria-controls="collapseOne">
+              Detalle del producto
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body" th:text="*{description}"></div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Características
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+
+              <ol>
+                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </li>
+                <li>Eius sapiente, a eligendi est vitae quam</li>
+                <li>laudantium inventore quas voluptatem repellendus corrupti </li>
+                <li>tempore sit! Rerum libero debitis pariatur dolorem</li>
+                <li>ipsum perferendis.</li>
+              </ol>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+
+</body>
+
+</html>
