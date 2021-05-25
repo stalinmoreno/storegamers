@@ -3,30 +3,34 @@
 <html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'viewProduct')}">
 
 <body>
+  <div th:object="${product}">
 
-  <div class="container-fluid container-main">
-    <div class="container xd-container" th:object="${product}">
 
-      <div class="panel text-center">
-        <a href="/"><i class="fas fa-arrow-circle-left"></i></a>
-        <img class="img-responsive" src="../static/images/logo.png" th:src="*{image_url}" />
-        <div class="text-subtitle mt-2" th:text="*{name}"></div>
-      </div>
+    <div class="container-fluid container-main">
+      <div class="container xd-container">
 
-      <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-              aria-expanded="true" aria-controls="collapseOne">
-              Detalle del producto
-            </button>
-          </h2>
-          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-            data-bs-parent="#accordionExample">
-            <div class="accordion-body" th:text="*{description}"></div>
+        <div class="panel text-center d-flex">
+          <a href="/"><i class="fas fa-arrow-circle-left"></i></a>
+          <div>
+            <img class="img-responsive" src="../static/images/logo.png" th:src="*{image_url}" />
+            <h3 class="text-subtitle mt-2" th:text="*{name}"></h3>
           </div>
         </div>
-        <div class="accordion-item">
+
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                aria-expanded="true" aria-controls="collapseOne">
+                Detalle del producto
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body" th:text="*{description}"></div>
+            </div>
+          </div>
+          <!-- <div class="accordion-item">
           <h2 class="accordion-header" id="headingTwo">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -47,14 +51,20 @@
 
             </div>
           </div>
+        </div> -->
         </div>
+
+
+
       </div>
 
+    </div>
 
-
+    <div class="footer-product d-flex justify-content-between">
+      <h4 class="mb-0 fw-bold" th:text="*{MonedaPrice}"></h4>
+      <button class="btn btn-primary">Agregar al carrito</button>
     </div>
   </div>
-
 </body>
 
 </html>

@@ -45,15 +45,15 @@
 
 .container-calalogue{
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   /*row-gap: 	1rem;*/
-  gap: 0.5rem;
+  gap: 1rem;
   color: var(--colorFont);
 }
 
 
 .card-product {
-  max-width: 13rem;
+  max-width: 14rem;
   /*height: 15rem;*/
   background-color: var(--colorWhite);
   justify-self: center;
@@ -113,4 +113,23 @@
   margin: 0.5rem 0;
   border-radius: 0.5rem;
   padding: 1rem;
+}
+
+.footer-product {
+  position: fixed;
+  bottom: 0;
+  padding: 1.5rem 1rem;
+  background-color: var(--colorWhite);
+  width: 100%;
+  z-index: 2;
+  align-items: center;
+}
+
+.panel a {
+  font-size: 1.8rem;
+  color: var(--colorFont);
+}
+
+.panel a > i:hover {
+  color: #000;
 }

@@ -2,83 +2,84 @@
 
 <html xmlns:th="https://www.thymeleaf.org">
 
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+  <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css} " />
+  <link th:rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+
 <body>
 
   <div class="container">
 
     <div class="row">
-      <div class="col-sm-10 mt-5">
-        <div class="form-group row">
-          <h1>Client</h1>
-        </div>
-        <!--  ----------------------- CUIDADO -------------------------->
-        <form th:object="${client}" th:action="@{/cliente/create}" method="post">
+      <div class="mt-5 row-login">
 
-          <div class="form-group row">
-            <div class="col-sm-2">
+
+        <form th:object="${client}" th:action="@{/cliente/create}" method="post">
+          <div class="form-group row mt-2">
+            <h1>Crear cuenta</h1>
+          </div>
+          <p>Completa los datos para crear tu cuenta</p>
+          <div class="form-group row mt-2">
+            <div class="">
               <label for="name">Name</label>
             </div>
-            <div class="col-sm-2">
-              <input type="text" th:field="*{name}" />
+            <div class="">
+              <input class="form-control" type="text" th:field="*{name}" />
             </div>
           </div>
 
-          <div class="form-group row">
-            <div class="col-sm-2">
+          <div class="form-group row mt-2">
+            <div class="">
               <label for="email">Correo</label>
             </div>
-            <div class="col-sm-2">
-              <input type="text" th:field="*{email}" />
+            <div class="">
+              <input class="form-control" type="text" th:field="*{email}" />
             </div>
           </div>
 
-          <div class="form-group row">
-            <div class="col-sm-2">
+          <div class="form-group row mt-2">
+            <div class="">
               <label for="user.userID">User</label>
             </div>
-            <div class="col-sm-2">
-              <input type="text" th:field="*{user.userID}" />
+            <div class="">
+              <input class="form-control" type="text" th:field="*{user.userID}" />
             </div>
           </div>
-          <div class="form-group row">
-            <div class="col-sm-2">
+          <div class="form-group row mt-2">
+            <div class="">
               <label for="user.password">Password</label>
             </div>
-            <div class="col-sm-2">
-              <input type="password" th:field="*{user.password}" />
+            <div class="">
+              <input class="form-control" type="password" th:field="*{user.password}" />
             </div>
           </div>
 
-          <div class="form-group row">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-2">
-              <button th:with="text='Registrar'" type="submit" th:text="${text}" />
+          <div class="form-group row mt-4">
+            <div class="d-grid gap-2">
+              <button class="btn btn-primary" th:with="text='Crear cuenta'" type="submit" th:text="${text}" />
             </div>
           </div>
+          <div class="mt-5 text-center">
+            <a href="/usuario/login">Ya tengo una cuenta</a>
+          </div>
+
         </form>
-        <a href="/usuario/login">Inicia sesión</a>
+
         <p th:text="${mensaje}" />
-        <!-- --------------------- CUIDADO ---------------------------->
+
       </div>
     </div>
   </div>
 
 
 
-  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-  <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
-  <script th:src="@{/webjars/bootstrap-datepicker/js/bootstrap-datepicker.min.js}"></script>
-  <script th:src="@{/webjars/jquery.inputmask/jquery.inputmask.min.js}"></script>
-
-  <script>
-    $('.input-group.date').datepicker({
-      autoclose: true,
-      todayHighlight: true
-    });
-  </script>
-  <script>
-    $(":input").inputmask();
-  </script>
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 
 </html>
