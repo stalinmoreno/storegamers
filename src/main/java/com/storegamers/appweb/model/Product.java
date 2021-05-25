@@ -20,6 +20,7 @@ import lombok.*;
 @Builder
 @Entity
 @Table(name = "t_product")
+
 public class Product {
 
   @Id
