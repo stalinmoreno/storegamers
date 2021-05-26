@@ -9,6 +9,7 @@ import javax.persistence.*;
 //@NoArgsConstructor
 //@AllArgsConstructor
 // @Builder
+
 @Entity
 @Table(name = "t_customer")
 public class Cliente {

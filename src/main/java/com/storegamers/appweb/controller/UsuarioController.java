@@ -63,4 +63,13 @@ public class UsuarioController {
         request.getSession().invalidate();
         return "redirect:/";
     }
+
+    @GetMapping("/usuario/cambiocontrasenia")
+    public String cambiocontrasenia(Model model) {
+        model.addAttribute("correo", "");
+        // request.getSession().invalidate();
+        return "usuario/cambiocontrasenia";
+    }
+
+
 }
