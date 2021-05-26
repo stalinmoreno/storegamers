@@ -38,23 +38,30 @@ public class UsuarioController {
             BindingResult result) {
         String page = INDEX;
         model.addAttribute(MODEL_CONTACT, new Usuario());
-        if (result.hasFieldErrors()) {
-            model.addAttribute(MODEL_MESSAGE, "No se ha podido loguear");
+
+        if (objUser.getPassword().isEmpty() || objUser.getUserID().isEmpty()) {
+            model.addAttribute(MODEL_MESSAGE, "Ingrese usuario y/o contraseña");
         } else {
-            Optional<Usuario> userDB = this.usuariosData.findById(objUser.getUserID());
-            if (userDB.isPresent()) {
-                if (userDB.get().getPassword().equals(objUser.getPassword())) {
-                    model.addAttribute(MODEL_CONTACT, userDB.get());
-                    model.addAttribute(MODEL_MESSAGE, "Usuario existe");
-                    request.getSession().setAttribute("user", objUser);
-                    page = "redirect:/";
-                } else {
-                    model.addAttribute(MODEL_MESSAGE, "Password no coincide");
-                }
+
+            if (result.hasFieldErrors()) {
+                model.addAttribute(MODEL_MESSAGE, "No se ha podido loguear");
             } else {
-                model.addAttribute(MODEL_MESSAGE, "Usuario no existe");
+                Optional<Usuario> userDB = this.usuariosData.findById(objUser.getUserID());
+                if (userDB.isPresent()) {
+                    if (userDB.get().getPassword().equals(objUser.getPassword())) {
+                        model.addAttribute(MODEL_CONTACT, userDB.get());
+                        model.addAttribute(MODEL_MESSAGE, "Usuario existe");
+                        request.getSession().setAttribute("user", objUser);
+                        page = "redirect:/";
+                    } else {
+                        model.addAttribute(MODEL_MESSAGE, "Password no coincide");
+                    }
+                } else {
+                    model.addAttribute(MODEL_MESSAGE, "Usuario no existe");
+                }
             }
         }
+
         return page;
     }
 

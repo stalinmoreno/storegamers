@@ -89,6 +89,11 @@
   padding: 0.2rem;
 }
 
+.store-menu-car a {
+  color: var(--colorWhite);
+  text-decoration: none;
+}
+
 .store-menu-car i {
   font-size: 1.4rem;
 }
@@ -128,7 +133,7 @@
 }
 
 .container-main {
-  padding-top: 54.75px;
+  padding-top: 60px;
 }
 
 /* slider categorias */
@@ -204,7 +209,11 @@
   background-color: var(--colorFont);
   color: var(--colorWhite);
   margin-top: 1rem;
-  position: relative;
+  /*position: absolute;*/
   width: 100%;
   bottom: 0;
+}
+
+.container {
+  min-height: 1000px !important;
 }

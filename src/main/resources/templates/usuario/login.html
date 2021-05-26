@@ -2,63 +2,66 @@
 
 <html xmlns:th="https://www.thymeleaf.org">
 
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+  <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css} " />
+  <link th:rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+
 <body>
 
   <div class="container">
 
     <div class="row">
-      <div class="col-sm-10 mt-5">
-        <div class="form-group row">
-          <h1>Login</h1>
-        </div>
+      <div class="mt-5 row-login">
 
-        <!--  ----------------------- CUIDADO -------------------------->
-        <form th:object="${user}" th:action="@{/usuario/login}" method="post">
-          <div class="form-group row">
-            <div class="col-sm-2">
-              <label for="userID">User</label>
-            </div>
-            <div class="col-sm-2">
-              <input type="text" th:field="*{userID}" />
+        <form th:object="${user}" class="card" th:action="@{/usuario/login}" method="post">
+          <div class="form-group text-center">
+            <h2>Iniciar Sesión</h2>
+          </div>
+          <div>
+            <img class="img-responsive img-login" src="../static/images/logo.png" th:src="@{/images/logo.png}" />
+          </div>
+
+          <div class="input-group mb-3 mt-4">
+            <span class="input-group-text"><i class="fas fa-user"></i></span>
+            <input type="text" th:field="*{userID}" class="form-control" placeholder="Ingrese su usuario"
+              aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+            <input type="password" th:field="*{password}" class="form-control" placeholder="Ingrese su contraseña"
+              aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+
+          <div class="form-group mt-2">
+            <div class="d-grid gap-2">
+              <button th:with="text='Iniciar Sesión'" class="btn btn-primary" type="submit" th:text="${text}" />
             </div>
           </div>
-          <div class="form-group row">
-            <div class="col-sm-2">
-              <label for="password">Password</label>
-            </div>
-            <div class="col-sm-2">
-              <input type="password" th:field="*{password}" />
-            </div>
+          <div class="mt-4 text-center">
+            <a href="/cliente/create">Crear cuenta con Store Gamers</a>
           </div>
-          <div class="form-group row">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-2">
-              <button th:with="text='Login'" class="btn btn-primary" type="submit" th:text="${text}" />
-            </div>
+
+          <div class="mt-2" th:if="${mensaje != null}">
+            <div class="alert alert-warning" th:text="${mensaje}"></div>
           </div>
+          <div th:unless="${mensaje != null}"></div>
+
         </form>
-        <a href="/cliente/create">Crear cuenta</a>
-        <p th:text="${mensaje}" />
 
-        <!--  ----------------------- CUIDADO -------------------------->
       </div>
-    </div>
-  </div>
-  <!-- 
-  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-  <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
-  <script th:src="@{/webjars/bootstrap-datepicker/js/bootstrap-datepicker.min.js}"></script>
-  <script th:src="@{/webjars/jquery.inputmask/jquery.inputmask.min.js}"></script> -->
 
-  <script>
-    $('.input-group.date').datepicker({
-      autoclose: true,
-      todayHighlight: true
-    });
-  </script>
-  <script>
-    $(":input").inputmask();
-  </script>
+    </div>
+
+  </div>
+
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 
 </html>

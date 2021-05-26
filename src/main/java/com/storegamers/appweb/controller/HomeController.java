@@ -1,7 +1,10 @@
 package com.storegamers.appweb.controller;
 
 import com.storegamers.appweb.model.Product;
+import com.storegamers.appweb.model.Proforma;
+import com.storegamers.appweb.model.Usuario;
 import com.storegamers.appweb.repository.ProductRepository;
+import com.storegamers.appweb.repository.ProformaRepository;
 
 import java.util.List;
 
@@ -13,28 +16,31 @@ import org.springframework.ui.Model;
 
 @Controller
 public class HomeController {
+
   @Autowired
   private static final String INDEX = "home";
-  private static final String VIEW_PRODUCT = "catalogo/viewProduct";
-  private final ProductRepository productsData;
-  private static String MODEL_PRODUCT = "product";
 
-  public HomeController(ProductRepository productsData) {
+  private final ProductRepository productsData;
+  private final ProformaRepository proformaData;
+
+  public HomeController(ProductRepository productsData, ProformaRepository proformaData) {
     this.productsData = productsData;
+    this.proformaData = proformaData;
   }
 
   @GetMapping("/")
   public String index(Model model) {
     List<Product> listProduct = this.productsData.getAllProducts();
+
     model.addAttribute("products", listProduct);
+    Integer total = countItemsCarrito();
+    model.addAttribute("proforma", total);
     return INDEX;
   }
 
-  // @GetMapping("/catalogo/viewProduct/{id}")
-  // public String viewProduct(@PathVariable("id") Integer id, Model model) {
-  // Product product = this.productsData.getOne(id);
-  // model.addAttribute(MODEL_PRODUCT, product);
-  // return VIEW_PRODUCT;
-  // }
+  public Integer countItemsCarrito() {
+    List<Proforma> listProforma = this.proformaData.findAll();
+    return listProforma.size();
+  }
 
 }
