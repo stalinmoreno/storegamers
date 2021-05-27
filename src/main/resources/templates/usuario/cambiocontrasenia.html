@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'home')}">
+
+<body>
+      <div class="container-fluid container-main">
+
+        <div class="container xd-container">
+        <div class="row">
+          <div class="col-sm-10 mt-5">
+            <div class="form-group row">
+              <h1>Cambio de contraseña</h1>
+            </div>
+
+            <form th:object="${correo}" th:action="@{/usuario/cambiocontrasenia}" method="post">
+                
+                <div class="form-group row">
+                  <div class="col-sm-2">
+                    <label for="contraseniaanterior">Contraseña anterior</label>
+                  </div>
+                  <div class="col-sm-2">
+                    <input type="text" th:field="*{password}" />
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                      <label for="nuevacontrasenia">Nueva contraseña</label>
+                    </div>
+                    <div class="col-sm-2">
+                      <input type="text" th:field="*{password}" />
+                    </div>
+                  </div>
+                <div class="form-group row">
+                  <div class="col-sm-2"></div>
+                  <div class="col-sm-2">
+                    <button th:with="text='CONFIRMAR'" class="btn btn-primary" type="submit" th:text="${text}" />
+                  </div>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+</div>
+</body>
+</html>

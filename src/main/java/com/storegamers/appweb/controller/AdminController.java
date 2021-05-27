@@ -8,13 +8,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.storegamers.appweb.model.Orden;
 
 @Controller
-public class OrdenController {
+public class AdminController {
 
-  private static final String INDEX = "orden/index";
+  private static final String INDEX = "admin/index";
+  private static final String INDEX_MANT = "admin/mantenimiento";
 
-  @GetMapping("/orden/index")
+  @GetMapping("/admin/index")
   public String index(Model model) {
     return INDEX;
+  }
+
+  @GetMapping("/admin/mantenimiento")
+  public String mantenimiento(Model model) {
+    return INDEX_MANT;
   }
 
 }
