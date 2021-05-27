@@ -73,10 +73,29 @@ public class UsuarioController {
 
     @GetMapping("/usuario/cambiocontrasenia")
     public String cambiocontrasenia(Model model) {
-        model.addAttribute("correo", "");
+        Usuario usuario = new Usuario();
+        model.addAttribute("correo", usuario);
         // request.getSession().invalidate();
         return "usuario/cambiocontrasenia";
     }
 
+    @PostMapping("/usuario/cambiocontrasenia")
+    public String createSubmitForm(Model model, @Valid Cliente cliente, BindingResult result) {
+
+        String page = INDEX;
+        if (result.hasFieldErrors()) {
+            model.addAttribute("mensaje", "No se registro un cliente");
+        } else {
+
+            Usuario user = cliente.getUser();
+            repoUsuario.save(user);
+            repoUsuario.flush();
+            repoCliente.save(cliente);
+            model.addAttribute(MODEL_CONTACT, cliente);
+            model.addAttribute("mensaje", "Se registro un cliente");
+            page = "redirect:/" + INDEX_LOGIN;
+        }
+        return page;
+    }
 
 }
