@@ -61,7 +61,7 @@
   padding: 1rem;
 }
 
-.card-product a {
+.card-product > a {
   text-decoration: none;
   color:var(--colorFont);;
 }
