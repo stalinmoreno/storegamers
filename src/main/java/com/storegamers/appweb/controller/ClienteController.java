@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
 import com.storegamers.appweb.model.Cliente;
+import com.storegamers.appweb.model.Perfil;
 import com.storegamers.appweb.model.Usuario;
 import com.storegamers.appweb.repository.ClienteRepository;
 import com.storegamers.appweb.repository.UsuarioRepository;
@@ -45,6 +46,11 @@ public class ClienteController {
         } else {
 
             Usuario user = cliente.getUser();
+            Perfil perfiluser = new Perfil();
+            perfiluser.setId(1);
+            perfiluser.setDescription("CLIENTE");
+            perfiluser.setStatus(1);
+            user.setPerfil(perfiluser);
             repoUsuario.save(user);
             repoUsuario.flush();
             repoCliente.save(cliente);

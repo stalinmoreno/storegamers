@@ -5,6 +5,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import com.storegamers.appweb.model.Usuario;
+
 import com.storegamers.appweb.repository.UsuarioRepository;
 
 import org.springframework.stereotype.Controller;
@@ -47,11 +48,12 @@ public class UsuarioController {
                 model.addAttribute(MODEL_MESSAGE, "No se ha podido loguear");
             } else {
                 Optional<Usuario> userDB = this.usuariosData.findById(objUser.getUserID());
+
                 if (userDB.isPresent()) {
                     if (userDB.get().getPassword().equals(objUser.getPassword())) {
                         model.addAttribute(MODEL_CONTACT, userDB.get());
                         model.addAttribute(MODEL_MESSAGE, "Usuario existe");
-                        request.getSession().setAttribute("user", objUser);
+                        request.getSession().setAttribute("user", userDB.get());
                         page = "redirect:/";
                     } else {
                         model.addAttribute(MODEL_MESSAGE, "Password no coincide");
@@ -79,23 +81,24 @@ public class UsuarioController {
         return "usuario/cambiocontrasenia";
     }
 
-    @PostMapping("/usuario/cambiocontrasenia")
-    public String createSubmitForm(Model model, @Valid Cliente cliente, BindingResult result) {
+    // @PostMapping("/usuario/cambiocontrasenia")
+    // public String createSubmitForm(Model model, @Valid Cliente cliente,
+    // BindingResult result) {
 
-        String page = INDEX;
-        if (result.hasFieldErrors()) {
-            model.addAttribute("mensaje", "No se registro un cliente");
-        } else {
+    // String page = INDEX;
+    // if (result.hasFieldErrors()) {
+    // model.addAttribute("mensaje", "No se registro un cliente");
+    // } else {
 
-            Usuario user = cliente.getUser();
-            repoUsuario.save(user);
-            repoUsuario.flush();
-            repoCliente.save(cliente);
-            model.addAttribute(MODEL_CONTACT, cliente);
-            model.addAttribute("mensaje", "Se registro un cliente");
-            page = "redirect:/" + INDEX_LOGIN;
-        }
-        return page;
-    }
+    // Usuario user = cliente.getUser();
+    // repoUsuario.save(user);
+    // repoUsuario.flush();
+    // repoCliente.save(cliente);
+    // model.addAttribute(MODEL_CONTACT, cliente);
+    // model.addAttribute("mensaje", "Se registro un cliente");
+    // page = "redirect:/" + INDEX_LOGIN;
+    // }
+    // return page;
+    // }
 
 }
