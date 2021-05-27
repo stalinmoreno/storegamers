@@ -14,15 +14,33 @@
                 <div class=" row">
 
                     <div class="col-md-8">
-                        <div class="card mt-2">
+                        <div class="card mt-2" th:each="proforma:${proformas}">
+                            <!-- <a th:href="@{'/proforma/index/__${proformas.user}__'}">> -->
+
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-4 col-md-3  d-flex justify-content-center">
                                         <div class="rounded float-start" style="max-width: 150px;">
                                             <img class="image-responsive img-fluid" src="../static/images/mando.png"
                                                 th:src="@{/images/mando.png}" />
+
+                                              <!-- <img class="img-responsive" src="../static/images/logo.png" th:src="${product.image_url}" />   -->
+
+                                                <!-- <div th:each="product:${producto}" class="card-product">
+                                                    <a th:href="@{'/catalogo/viewProduct/__${product.id}__'}">
+                                                      <div class="card-image">
+                                                        <img class="img-responsive" src="../static/images/logo.png" th:src="${product.image_url}" /> </div> -->
+                                                      
                                         </div>
                                     </div>
+
+
+  
+
+
+
+
+
                                     <div class=" col-sm-8 col-md-9">
                                         <div class="row">
                                             <div class="col-12 col-md-10">
@@ -52,6 +70,14 @@
                                                     </li>
                                                 </ul>
                                             </div>
+
+
+
+ 
+
+                                                    
+
+
                                             <div class="col-12 col-md-2 text-center mt-2">
                                                 <button type="button" class="btn btn-outline-danger"><i
                                                         class="far fa-trash-alt"></i></button>
@@ -109,6 +135,7 @@
 
         </div>
     </div>
+
 
 
 </body>
