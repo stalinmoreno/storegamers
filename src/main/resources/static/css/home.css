@@ -108,12 +108,19 @@
   background-color: #053697 ;
 }
 
-.menu-user {
+.menu-user{
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding: 0.7rem;
   color: var(--colorFont);
+}
+.menu-user-login {
+  flex-direction: row;
+}
+
+.menu-user-logout {
+  flex-direction: column;
 }
 
 .menu-user .icon-user {
