@@ -1,0 +1,49 @@
+.panel-admin-item {
+  min-width: 150px;
+  min-height: 150px;
+  background-color: var(--colorPrimary);
+  /*padding: 1rem;*/
+  text-align: center;
+  margin: 1rem;
+  text-decoration: none;
+  padding: 1rem;
+  color: var(--colorWhite) !important;
+  font-size: 1.5rem;
+  border-radius: 7px;
+}
+
+.panel-admin-item i{
+  font-size: 2.5rem;
+  padding: 20px;
+}
+
+.panel-admin-item:hover i {
+  background-color: white;
+  color: var(--colorPrimary);
+  border-radius: 50%;
+}
+
+.panel-mant-item {
+  min-width: 150px;
+  min-height: 150px;
+  background-color: var(--colorFont);
+  /*padding: 1rem;*/
+  text-align: center;
+  margin: 1rem;
+  text-decoration: none;
+  padding: 1rem;
+  color: var(--colorWhite) !important;
+  font-size: 1.5rem;
+  border-radius: 7px;
+}
+
+.panel-mant-item i{
+  font-size: 2.5rem;
+  padding: 20px;
+}
+
+.panel-mant-item:hover i {
+  background-color: white;
+  color: var(--colorFont);
+  border-radius: 50%;
+}

@@ -42,26 +42,63 @@
         <div class="box-close">
           <i class="fas fa-times-circle icon-close" id="btnClose"></i>
         </div>
-        <div class="menu-user">
-          <i class="fas fa-user-circle icon-user"></i>
-          <h3>Hola User</h3>
-        </div>
 
-        <div class="menu-options">
-          <a href="/orden/index">
-            <i class="fas fa-shopping-bag"></i> Mis ordenes
-          </a>
-          <a href="#">
-            <i class="fas fa-address-card"></i> Datos personales
-          </a>
-          <a href="/usuario/cambiocontrasenia">
-            <i class="fas fa-lock"></i> Cambiar contraseña
-          </a>
-          <a href="/usuario/login">
-            <i class="fas fa-sign-out-alt"></i> Cerrar sesión
-          </a>
-        </div>
+        <div th:if="${user != null}">
 
+          <div th:if="${perfil != null}">
+
+            <div class="menu-user menu-user-login" th:object="${user}">
+              <i class="fas fa-user-circle icon-user "></i>
+              <div class="d-flex align-item-center flex-column">
+                <h3 class="ms-3">Hola <span th:text="*{userID}"></span></h3>
+                <span class="text-muted ms-3" style="font-size: 13px;" th:text="${perfil.description}"></span>
+              </div>
+            </div>
+
+            <div class="menu-options" th:object="${perfil}">
+
+              <!-- **** Es cliente ***** -->
+
+              <a href="/orden/index" th:if="*{id == 1}">
+                <i class="fas fa-shopping-bag"></i> Mis ordenes
+              </a>
+              <a href="#" th:if="*{id == 1}">
+                <i class="fas fa-address-card"></i> Datos personales
+              </a>
+              <a href="#" th:if="*{id == 1}">
+                <i class="fas fa-lock"></i> Cambiar contraseña
+              </a>
+              <a href="/usuario/logout" th:if="*{id == 1}">
+                <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+              </a>
+
+              <!-- **** Es Administrador ***** -->
+
+              <a href="/admin/index" th:if="*{id == 2}">
+                <i class="fas fa-shopping-bag"></i> Panel Administrador
+              </a>
+              <a href="#" th:if="*{id == 2}">
+                <i class="fas fa-address-card"></i> Datos personales
+              </a>
+              <a href="#" th:if="*{id == 2}">
+                <i class="fas fa-lock"></i> Cambiar contraseña
+              </a>
+              <a href="/usuario/logout" th:if="*{id == 2}">
+                <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+              </a>
+
+            </div>
+          </div>
+          <div th:unless="${perfil != null}"></div>
+
+        </div>
+        <div th:unless="${user != null}">
+          <div class="menu-user menu-user-logout">
+            <i class="fas fa-user-circle icon-user mb-5"></i>
+            <a class="btn btn-outline-primary" href="/usuario/login">Iniciar Sesión</a>
+          </div>
+
+        </div>
 
       </div>
 
