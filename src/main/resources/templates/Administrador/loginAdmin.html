@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragment/fragment :: fragment (~{::body},'carrito')}">
+      <body>
+        <div class="container-fluid bg-primary fondo">
+            <div class="container principal-sesion">
+    
+                <div class="logo-usu row" >
+                    <div class="dropdown">
+                        <button class="bot-usu border border-light btn mt-3 rounded-circle" type="button" id="dropdown1" data-toggle="dropdown">
+                            <img src="../img/logoUsuario.gif"  class="img-fluid" alt="" >
+                        </button>
+                        <div class="dropdown-menu menu-usu">
+                          <a class="dropdown-item " href="/usuario/login">Iniciar sesión</a>
+                          <a class="dropdown-item" href="/administrador/login">Administrador</a>
+                          <a class="dropdown-item" href="/cliente/create">Crear cuenta</a>                          
+                        </div>
+                    </div>
+                </div> 
+                
+                <div class="row logo-chamcha">
+                    <a class="btn mt-3 rounded-circle" href="/" role="button">
+                        <img src="../img/LOGO_RESTAURANTE.gif" alt="" class="w-100 h-100">
+                    </a>                
+                </div>
+            
+                <div class="row">
+                    <div class="col-lg-4 mt-4 mx-auto">
+                        <div class="mx-auto text-center rounded-circle logo-sesion">
+                            <img src="../img/logoUsuario.gif" class="mt-5">
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="row">
+                    <div class="col-lg-4 text-light mx-auto mt-2 text-center">
+                        <h3>ADMINISTRADOR</h3>
+                    </div>
+                </div>
+        
+                <form  th:object="${user}" th:action="@{/administrador/login}" method="post">
+                    <div class="row">
+                        <div class="col-6 col-lg-3 mx-auto mt-4 text-light">
+                            <input type="email" th:field="*{email}" class="input-direc form-control text-light" placeholder="Ingrese correo" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+        
+                    <div class="row">
+                        <div class="col-6 col-lg-3 mx-auto mt-4 text-light">
+                            <input type="password" th:field="*{password}" class="input-direc form-control text-light" placeholder="Ingrese contraseña" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-7 col-lg-4 mx-auto mt-5">
+                            <button th:with="text='Ingresar'" class="btn btn-outline-light w-100" type="submit" th:text="${text}"/>                        
+                        </div>
+                    </div>
+                </form>
+                <p th:text="${mensaje}" class="text-white"/>
+                    
+            </div>
+         </div>
+    
+    
+    
+    
+         <div th:replace="Fragments/footer :: footer"></div> 
+    
+    
+    
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
+      </body>
+</html>

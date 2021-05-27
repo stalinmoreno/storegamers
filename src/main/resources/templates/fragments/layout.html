@@ -43,6 +43,7 @@
           <i class="fas fa-times-circle icon-close" id="btnClose"></i>
         </div>
 
+
         <div th:if="${user != null}">
 
           <div th:if="${perfil != null}">
@@ -91,6 +92,7 @@
           </div>
           <div th:unless="${perfil != null}"></div>
 
+
         </div>
         <div th:unless="${user != null}">
           <div class="menu-user menu-user-logout">
@@ -109,14 +111,11 @@
   <th:block th:include="${template}" />
 
 
-
   <div class="footer">
     <div class="text-center">
       Copyright @ 2021 StoreGamers
     </div>
   </div>
-
-
 
 
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>

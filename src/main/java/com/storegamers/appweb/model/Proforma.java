@@ -29,7 +29,11 @@ public class Proforma {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @ManyToOne(fetch = FetchType.LAZY)
+
+    
+
     @JoinColumn(name = "producto_id")
     private Product product;
     @ManyToOne(fetch = FetchType.LAZY)
