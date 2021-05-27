@@ -19,12 +19,14 @@
     <div class="row">
       <div class="mt-5 row-login">
 
-        <form th:object="${user}" class="card" th:action="@{/usuario/login}" method="post">
+        <form th:object="${user}" class="" th:action="@{/usuario/login}" method="post">
           <div class="form-group text-center">
             <h2>Iniciar Sesión</h2>
           </div>
           <div>
-            <img class="img-responsive img-login" src="../static/images/logo.png" th:src="@{/images/logo.png}" />
+            <a href="/">
+              <img class="img-responsive img-login" src="../static/images/logo.png" th:src="@{/images/logo.png}" />
+            </a>
           </div>
 
           <div class="input-group mb-3 mt-4">
