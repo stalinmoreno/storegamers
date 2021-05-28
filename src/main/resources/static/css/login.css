@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,300&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #EFEFEF;
+  
+}
+
+.img-login {
+  width: 100%;
+}
+
+h2{
+  color:#2E3A59;
+}
+
+.row-login {
+  display: flex;
+  justify-content: center;
+}
+
+form{
+  max-width: 390px;
+  padding: 2rem;
+  border:none !important;
+  box-shadow: 1px 3px 15px rgba(0,0,0, 0.2) !important;
+  background-color: white !important;
+  border-radius: 0.5rem;
+}
+
+body {
+  background-image: url('../images/background-login2.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.iclose a {
+  font-size: 1.8rem;
+  color: var(--colorFont);
+}
+
+.iclose a > i:hover {
+  color: #000;
+}
+
+.form-create {
+  padding-top: 0.8rem !important;
+}

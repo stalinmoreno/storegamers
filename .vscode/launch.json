@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AppwebApplication<appweb>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.storegamers.appweb.AppwebApplication",
+            "projectName": "appweb",
+            "args": ""
+        }
+    ]
+}
