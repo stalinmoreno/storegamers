@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'home')}">
+
+<body>
+  <div class="container-fluid container-main">
+
+    <div class="container xd-container">
+
+      <div class="mt-3 mb-2">
+        <h4 class="text-subtitle">Panel Administrador</h4>
+      </div>
+
+      <div class="card mt-3">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg-6">
+              <a href="#" class="panel-admin-item d-flex align-items-center justify-content-center">
+                <div class="d-flex flex-column align-items-center">
+                  <i class="fas fa-cog"></i>
+                  <label for="">Configuración</label>
+                </div>
+              </a>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6">
+              <a href="/admin/mantenimiento" class="panel-admin-item d-flex align-items-center justify-content-center">
+                <div class="d-flex flex-column align-items-center">
+                  <i class="fas fa-pen"></i>
+                  <span for="">Mantenimiento</span>
+                </div>
+              </a>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6">
+              <a href="#" class="panel-admin-item d-flex align-items-center justify-content-center">
+                <div class="d-flex flex-column align-items-center">
+                  <i class="fas fa-chart-pie"></i>
+                  <span for="">Reportes</span>
+                </div>
+              </a>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6">
+              <a href="#" class="panel-admin-item d-flex align-items-center justify-content-center">
+                <div class="d-flex flex-column align-items-center">
+                  <i class="fas fa-search"></i>
+                  <label for="">Buscar</label>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

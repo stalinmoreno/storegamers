@@ -1,0 +1,7 @@
+.container-productos{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  /*row-gap: 	1rem;*/
+  gap: 1rem;
+  color: var(--colorFont);
+}

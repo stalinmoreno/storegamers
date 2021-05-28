@@ -1,9 +1,135 @@
 
-.row-search {
-  border: 1px solid blue;
-}
+/* Search */
 
 .input-search {
-  border: 1px solid red;
+  background-color: var(--colorPrimary);
+  padding-bottom: 1rem;
+  display: flex;
+  padding: 0.2rem 0 0.5rem 0;
 }
 
+.input-text-search {
+  background-color: var(--colorWhite);
+  margin: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  padding: 0.2rem;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+.input-text-search i {
+  padding: 0 0.3rem;
+}
+
+.input-text-search input {
+  border: none;
+  outline: none;
+  width: 95%;
+  font-size: 0.9rem;
+  padding: 0.3rem 0.1rem;
+  color: var(--colorFont);
+}
+
+.input-search > i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1rem 0 0.5rem;
+  font-size: 1.25rem;
+  color: var(--colorWhite);
+  cursor:pointer;
+}
+
+/* Catalogue */
+
+.container-calalogue{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  /*row-gap: 	1rem;*/
+  gap: 1rem;
+  color: var(--colorFont);
+}
+
+
+.card-product {
+  max-width: 14rem;
+  /*height: 15rem;*/
+  background-color: var(--colorWhite);
+  justify-self: center;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.card-product > a {
+  text-decoration: none;
+  color:var(--colorFont);;
+}
+
+
+.card-image {
+  overflow: hidden;
+  border-radius: 0.5rem;
+  height: 12rem;
+  display: flex;
+  align-items: center;
+}
+
+.card-image img{
+  width: 100%;
+}
+
+.card-product-body {
+  margin-top: 0.4rem;
+  text-align: center;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+}
+
+.card-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*margin-top: 0.5rem;*/
+}
+
+.card-action span {
+  font-weight: bold;
+}
+
+.card-action i {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--colorPrimary);
+}
+
+/* View product */
+
+.panel {
+  background-color: var(--colorWhite);
+  margin: 0.5rem 0;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.footer-product {
+  position: fixed;
+  bottom: 0;
+  padding: 1.5rem 1rem;
+  background-color: var(--colorWhite);
+  width: 100%;
+  z-index: 2;
+  align-items: center;
+}
+
+.panel a {
+  font-size: 1.8rem;
+  color: var(--colorFont);
+}
+
+.panel a > i:hover {
+  color: #000;
+}

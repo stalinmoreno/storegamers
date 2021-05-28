@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'home')}">
+
+<body>
+  <div class="container-fluid container-main">
+
+    <div class="container xd-container">
+
+      <div class="mt-3 mb-2">
+        <h4 class="text-subtitle">Mantenimiento</h4>
+      </div>
+
+      <div class="card mt-3">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+              <a href="/producto/index" class="panel-mant-item d-flex align-items-center justify-content-center">
+                <div class="d-flex flex-column align-items-center">
+                  <i class="fas fa-pen"></i>
+                  <span for="">Productos</span>
+                </div>
+              </a>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+              <a href="/admin/mantenimiento" class="panel-mant-item d-flex align-items-center justify-content-center">
+                <div class="d-flex flex-column align-items-center">
+                  <i class="fas fa-pen"></i>
+                  <span for="">Categorías</span>
+                </div>
+              </a>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+              <a href="#" class="panel-mant-item d-flex align-items-center justify-content-center">
+                <div class="d-flex flex-column align-items-center">
+                  <i class="fas fa-pen"></i>
+                  <span for="">Marcas</span>
+                </div>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+
+</html>

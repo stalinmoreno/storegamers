@@ -4,15 +4,190 @@
 
 <body>
 
+
   <div class="container-main">
     <div class="input-search">
-      <i class="fas fa-search"></i>
-      <input type="text" placeholder="Ingrese el producto a buscar" />
+      <div class="input-text-search">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Ingrese el producto a buscar" />
+      </div>
+      <i class="fas fa-sliders-h" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
     </div>
-    <i class="fas fa-sliders-h"></i>
   </div>
 
-  <h1>Catálogo</h1>
+  <div class="container">
+
+    <div class="mt-2 mb-2">
+      <span class="text-subtitle">Categorías</span>
+    </div>
+
+    <!-- Slider main container -->
+    <div class="swiper-container mySwiper">
+      <div class="swiper-wrapper">
+
+        <a href="#" class="swiper-slide active">Todo</a>
+        <a href="#" class="swiper-slide">Categoria 2</a>
+        <a href="#" class="swiper-slide">Categoria 3</a>
+        <a href="#" class="swiper-slide">Categoria 4</a>
+        <a href="#" class="swiper-slide">Categoria 5</a>
+        <a href="#" class="swiper-slide">Categoria 6</a>
+        <a href="#" class="swiper-slide">Categoria 7</a>
+        <a href="#" class="swiper-slide">Categoria 8</a>
+        <a href="#" class="swiper-slide">Categoria 9</a>
+
+      </div>
+      <!-- If we need pagination -->
+      <!-- <div class="swiper-pagination"></div> -->
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+      <!-- If we need scrollbar -->
+      <!-- <div class="swiper-scrollbar"></div> -->
+    </div>
+
+    <!--<h1>Catálogo</h1> -->
+
+    <div class="mt-2 mb-2">
+      <span class="text-subtitle">Catálogo</span>
+    </div>
+
+    <div class="container-calalogue">
+
+
+      <div th:each="product:${products}" class="card-product">
+        <a th:href="@{'/catalogo/viewProduct/__${product.id}__'}">
+          <div class="card-image">
+            <img class="img-responsive" src="../static/images/logo.png" th:src="${product.image_url}" />
+          </div>
+          <!-- <div class="card-stars"></div> -->
+          <div class="card-product-body">
+            <div th:text="${product.name}" class="card-text"></div>
+            <div class="card-action">
+              <span th:text="${product.MonedaPrice}"></span>
+              <!-- <i class="fas fa-plus-circle"></i> -->
+            </div>
+
+          </div>
+        </a>
+        <div class="d-grid gap-2">
+          <a th:href="@{'/catalogo/add/__${product.id}__'}" class="btn btn-outline-primary btn-sm">Agregar</a>
+        </div>
+      </div>
+
+
+      <!-- <div class="card-product">
+        <div class="card-image">
+          <img class="img-responsive" src="../static/images/logo.png" th:src="@{/images/logo.png}" />
+        </div>
+        <div class="card-product-body">
+          <div class="card-text">
+            Logitech - Teclado + Mouse
+          </div>
+          <div class="card-action">
+            <span>S/.119.00</span>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+        </div>
+      </div> -->
+
+
+
+
+    </div>
+
+  </div>
+
+
+  <!-- Modal filtros -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-sliders-h"></i> Filtros</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <label class="text-subtitle">Marcas</label>
+
+            <!-- <div class="col-md-12">
+              <button type="button" class="btn btn-primary mt-1">Todos</button>
+              <button type="button" class="btn btn-outline-dark mt-1">Marca 2</button>
+              <button type="button" class="btn btn-outline-dark mt-1">Marca 3</button>
+              <button type="button" class="btn btn-outline-dark mt-1">Marca 4</button>
+              <button type="button" class="btn btn-outline-dark mt-1">Marca 2</button>
+              <button type="button" class="btn btn-outline-dark mt-1">Marca 3</button>
+              <button type="button" class="btn btn-outline-dark mt-1">Marca 4</button>
+            </div> -->
+
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+              <label class="btn btn-outline-primary" for="btnradio1">Radio 1</label>
+
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+              <label class="btn btn-outline-primary" for="btnradio2">Radio 2</label>
+
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+              <label class="btn btn-outline-primary" for="btnradio3">Radio 3</label>
+            </div>
+
+          </div>
+          <div class="row mt-2">
+            <label class="text-subtitle">Rangos</label>
+            <div class="col-md-12">
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Todos
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                <label class="form-check-label" for="flexRadioDefault2">
+                  Rango 1
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                <label class="form-check-label" for="flexRadioDefault3">
+                  Rango 2
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+                <label class="form-check-label" for="flexRadioDefault4">
+                  Rango 3
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault5">
+                <label class="form-check-label" for="flexRadioDefault5">
+                  Rango 4
+                </label>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="d-grid gap-2">
+            <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+            <button type="button" class="btn btn-primary">Listo</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
 
 
 </body>
