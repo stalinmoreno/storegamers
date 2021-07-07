@@ -2,7 +2,7 @@ package com.storegamers.appweb.model;
 
 import javax.persistence.*;
 
-//import lombok.*;
+import lombok.*;
 
 //@Getter
 //@Setter
