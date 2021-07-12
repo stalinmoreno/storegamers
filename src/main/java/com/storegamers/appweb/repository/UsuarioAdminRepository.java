@@ -5,5 +5,7 @@ import com.storegamers.appweb.model.UsuarioAdmin;
 import  com.storegamers.appweb.model.UsuarioAdmin;
 
 public interface UsuarioAdminRepository extends JpaRepository<UsuarioAdmin,String>{
+
+    
     
 }

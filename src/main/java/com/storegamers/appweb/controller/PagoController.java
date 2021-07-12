@@ -58,21 +58,21 @@ public class PagoController {
         Usuario user = (Usuario)session.getAttribute("user"); 
         Cliente cliente = clienteData.findByUsuario(user);
         List<Proforma> listItems = proformaData.findItemsByUsuario(user);
-        if(listItems.isEmpty()){
-            model.addAttribute("mensaje", "Carrito Vacio");
-            return "proforma/index";
-        }
-        BigDecimal montoTotal = listItems.stream().
-            map(n -> n.getPrecio().multiply(
-                        new BigDecimal(n.getCantidad()))).
-                    reduce(BigDecimal.ZERO, BigDecimal::add);
+        // if(listItems.isEmpty()){
+        //     model.addAttribute("mensaje", "Carrito Vacio");
+        //     return "proforma/index";
+        // }
+        // BigDecimal montoTotal = listItems.stream().
+        //     map(n -> n.getPrecio().multiply(
+        //                 new BigDecimal(n.getCantidad()))).
+        //             reduce(BigDecimal.ZERO, BigDecimal::add);
         Pago pago = new Pago();
-        pago.setPaymentDate(new Date());
-        pago.setMontoTotal(montoTotal);
-        pago.setClienteId(cliente.getId());
-        pago.setNombreTarjeta(
-            cliente.getName().concat(" ").
-            concat(cliente.getName()));
+        // pago.setPaymentDate(new Date());
+        // pago.setMontoTotal(montoTotal);
+        // pago.setClienteId(cliente.getId());
+        // pago.setNombreTarjeta(
+        //     cliente.getName().concat(" ").
+        //     concat(cliente.getName()));
         model.addAttribute(MODEL_VIEW, pago);
         return VIEW_INDEX;
     }   
