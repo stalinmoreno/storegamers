@@ -8,6 +8,7 @@ import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
@@ -19,8 +20,8 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "t_proforma")
-public class Proforma {
+@Table(name = "t_detail_order")
+public class DetallePedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -28,12 +29,10 @@ public class Proforma {
     @JoinColumn(name = "producto_id")
     private Product product;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private Usuario user;
+    @JoinColumn(name = "order_id")
+    private Pedido pedido;
     private BigDecimal precio;
     private Integer cantidad;
-    @Builder.Default
-    private String status = "PENDING";
 
     public Integer getId() {
         return id;
@@ -51,12 +50,12 @@ public class Proforma {
         this.product = product;
     }
 
-    public Usuario getUser() {
-        return user;
+    public Pedido getPedido() {
+        return pedido;
     }
 
-    public void setUser(Usuario user) {
-        this.user = user;
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
     }
 
     public BigDecimal getPrecio() {
@@ -73,13 +72,5 @@ public class Proforma {
 
     public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 }

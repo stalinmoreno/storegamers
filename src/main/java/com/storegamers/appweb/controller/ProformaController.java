@@ -1,8 +1,10 @@
 package com.storegamers.appweb.controller;
 
+import org.springframework.data.mapping.model.IdPropertyIdentifierAccessor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
@@ -12,11 +14,13 @@ import com.storegamers.appweb.model.Orden;
 import com.storegamers.appweb.model.Product;
 import com.storegamers.appweb.model.Proforma;
 import com.storegamers.appweb.model.Usuario;
+import com.storegamers.appweb.repository.CarritoRepository;
 import com.storegamers.appweb.repository.ProformaRepository;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -26,6 +30,7 @@ public class ProformaController {
   private static String MODEL_PRODUCTO = "proforma";
   private final ProformaRepository proformaData;
   private final HomeController globalHome;
+  
 
   public ProformaController(ProformaRepository proformaData, HomeController globalHome) {
     this.proformaData = proformaData;
@@ -56,5 +61,17 @@ public class ProformaController {
 
     return INDEX;
   }
+
+  @GetMapping("/proforma/eliminar/{id}")
+
+  public String carritoEliminar(@PathVariable int  id,RedirectAttributes redirect) {
+    proformaData.deleteById(id);
+    // redirect.addFlashAttribute(MENSAJE, "EL producto se ha quitado del carrito de compras.");
+
+    return "redirect:/proforma/index";
+}
+
+
+
 
 }
