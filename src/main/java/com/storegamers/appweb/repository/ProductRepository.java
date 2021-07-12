@@ -14,4 +14,5 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
   @Query(value = "select p.* from t_product p where p.id = ?1", nativeQuery = true)
   Product getOneProduct(Integer id);
+
 }

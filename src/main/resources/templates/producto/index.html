@@ -44,6 +44,7 @@
             </div>
 
 
+
           </div>
 
 
@@ -53,6 +54,29 @@
 
     </div>
   </div>
+
+
+  <div id="msj" class="hide" th:text="${mensaje}"></div>
+
+  <script th:src="@{/webjars/sweetalert2/dist/sweetalert2.min.js}"></script>
+  <script>
+
+    const msj = document.getElementById("msj").innerHTML;
+
+    if (msj != "") {
+
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: msj,
+        showConfirmButton: false,
+        timer: 1500
+      });
+
+    }
+
+
+  </script>
 
 </body>
 

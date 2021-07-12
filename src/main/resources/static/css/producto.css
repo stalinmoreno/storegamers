@@ -5,3 +5,7 @@
   gap: 1rem;
   color: var(--colorFont);
 }
+
+.img-product {
+  max-width: 260px;
+}

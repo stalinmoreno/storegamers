@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <link th:rel="stylesheet" th:href="@{/css/style.css}">
-
+  <link th:rel="stylesheet" th:href="@{/webjars/sweetalert2/dist/sweetalert2.min.css}">
 
 </head>
 
@@ -87,7 +87,7 @@
               <a href="/usuario/logout" th:if="*{id == 2}">
                 <i class="fas fa-sign-out-alt"></i> Cerrar sesión
               </a>
-
+              <!-- <button id="btnPrueba">mensaje</button> -->
             </div>
           </div>
           <div th:unless="${perfil != null}"></div>
@@ -117,7 +117,7 @@
     </div>
   </div>
 
-
+  <script th:src="@{/webjars/sweetalert2/dist/sweetalert2.min.js}"></script>
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
@@ -126,6 +126,19 @@
   <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script th:src="@{/js/home/home.js}"></script>
+
+  <script>
+    // const btnPrueba = document.getElementById("btnPrueba");
+    // btnPrueba.addEventListener("click", () => {
+    //   Swal.fire({
+    //     position: 'top-end',
+    //     icon: 'success',
+    //     title: 'Se grabó correctamente',
+    //     showConfirmButton: false,
+    //     timer: 1500
+    //   });
+    // });
+  </script>
 
 </body>
 
