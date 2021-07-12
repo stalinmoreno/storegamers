@@ -6,17 +6,20 @@ import javax.validation.Valid;
 
 import com.storegamers.appweb.model.Usuario;
 
+import com.storegamers.appweb.repository.UsuarioService;
 import com.storegamers.appweb.repository.UsuarioRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.websocket.server.PathParam;
 
 @Controller
+//@RestController
 public class UsuarioController {
 
     private static final String INDEX = "usuario/login";
@@ -80,6 +83,17 @@ public class UsuarioController {
         // request.getSession().invalidate();
         return "usuario/cambiocontrasenia";
     }
+
+    @Autowired
+    UsuarioService service;
+
+    @PostMapping("/usuario/cambio")
+    public void newPassword(@RequestBody Usuario usuario, @RequestHeader("newPassword") String newP){
+        service.changePassword(newP,usuario.getPassword());
+    }
+
+
+
 
 
     // @PostMapping("/usuario/cambiocontrasenia")
