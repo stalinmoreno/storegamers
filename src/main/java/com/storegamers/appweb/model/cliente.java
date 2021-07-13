@@ -20,7 +20,7 @@ public class Cliente {
     private String email;
     private String name;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private Usuario user;
 

@@ -23,67 +23,63 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-
 
 @Controller
 public class PagoController {
 
-    private static final String VIEW_INDEX ="pago/create";
-    private static String MODEL_VIEW="pago";
+    private static final String VIEW_INDEX = "pago/create";
+    private static String MODEL_VIEW = "pago";
     private final ProformaRepository proformaData;
     private final ClienteRepository clienteData;
     private final PagoRepository pagoData;
     private final PedidoRepository pedidoData;
     private final DetallePedidoRepository detallePedidoData;
-    
-    public PagoController(ProformaRepository proformaData,
-        ClienteRepository clienteData,
-        PagoRepository pagoData,
-        PedidoRepository pedidoData,
-        DetallePedidoRepository detallePedidoData
-        ){
+
+    public PagoController(ProformaRepository proformaData, ClienteRepository clienteData, PagoRepository pagoData,
+            PedidoRepository pedidoData, DetallePedidoRepository detallePedidoData) {
         this.proformaData = proformaData;
         this.clienteData = clienteData;
         this.pagoData = pagoData;
         this.pedidoData = pedidoData;
         this.detallePedidoData = detallePedidoData;
-    } 
-    
-    
+    }
+
     @GetMapping("/pago/create")
-    public String index(Model model, HttpSession session){
-        Usuario user = (Usuario)session.getAttribute("user"); 
+    public String index(Model model, HttpSession session, RedirectAttributes redirect) {
+        Usuario user = (Usuario) session.getAttribute("user");
         Cliente cliente = clienteData.findByUsuario(user);
         List<Proforma> listItems = proformaData.findItemsByUsuario(user);
-        // if(listItems.isEmpty()){
-        //     model.addAttribute("mensaje", "Carrito Vacio");
-        //     return "proforma/index";
-        // }
-        // BigDecimal montoTotal = listItems.stream().
-        //     map(n -> n.getPrecio().multiply(
-        //                 new BigDecimal(n.getCantidad()))).
-        //             reduce(BigDecimal.ZERO, BigDecimal::add);
+        // BigDecimal sumPrecio =
+        // listItems.stream().map(Proforma::getPrecio).reduce(BigDecimal.ZERO,
+        // BigDecimal::add);
         Pago pago = new Pago();
-        // pago.setPaymentDate(new Date());
-        // pago.setMontoTotal(montoTotal);
-        // pago.setClienteId(cliente.getId());
-        // pago.setNombreTarjeta(
-        //     cliente.getName().concat(" ").
-        //     concat(cliente.getName()));
+
+        String page = VIEW_INDEX;
+
+        model.addAttribute("user", user);
+        if (user != null) {
+            model.addAttribute("perfil", user.getPerfil());
+
+        } else {
+            model.addAttribute("perfil", null);
+            page = "redirect:/proforma/index";
+            redirect.addFlashAttribute("mensaje", "Inicie sesión para continuar con la compra");
+        }
+        // redirect.addFlashAttribute("subtotal", sumPrecio);
         model.addAttribute(MODEL_VIEW, pago);
-        return VIEW_INDEX;
-    }   
+
+        return page;
+    }
 
     @PostMapping("/pago/create")
-    public String createSubmitForm(Model model, HttpSession session,
-        @Valid Pago objPago, BindingResult result ){
-        Usuario user = (Usuario)session.getAttribute("user"); 
-        if(result.hasFieldErrors()) {
+    public String createSubmitForm(Model model, HttpSession session, @Valid Pago objPago, BindingResult result) {
+        Usuario user = (Usuario) session.getAttribute("user");
+        if (result.hasFieldErrors()) {
             model.addAttribute("mensaje", "No se puede registrar pago");
-        }else{
+        } else {
             Pedido pedido = new Pedido();
             pedido.setClienteId(objPago.getClienteId());
             pedido.setMontoTotal(objPago.getMontoTotal());
@@ -106,7 +102,7 @@ public class PagoController {
             pagoData.save(objPago);
             model.addAttribute(MODEL_VIEW, objPago);
             pedidoData.flush();
-            model.addAttribute("mensaje", "Se registro su pago y se genero su pedido nro "+ pedido.getId());
+            model.addAttribute("mensaje", "Se registro su pago y se genero su pedido nro " + pedido.getId());
         }
         return VIEW_INDEX;
     }

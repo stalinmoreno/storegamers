@@ -11,12 +11,13 @@
         <h4 class="text-subtitle">Nuevo producto</h4>
       </div>
 
-      <div class="card mt-3 p-3">
-        <form action="#">
+      <div class="panel mt-3 p-3">
+        <a href="/producto/index"><i class="fas fa-arrow-circle-left"></i></a>
+        <form th:object="${product}" th:action="@{/producto/create}" method="POST">
           <div class="row">
             <div class="col-sm-12 mt-2">
               <label for="" class="form-label">Nombre del producto</label>
-              <input type="text" class="form-control" id="" placeholder="" value="" required="">
+              <input type="text" class="form-control" id="" placeholder="" th:field="*{name}" required="">
               <div class="invalid-feedback">
                 Este campo es requerido.
               </div>
@@ -30,28 +31,29 @@
             </div> -->
             <div class="col-6 col-sm-6 mt-2">
               <label for="" class="form-label">Precio</label>
-              <input type="text" class="form-control" id="" placeholder="0.00" value="" required="">
+              <input type="text" class="form-control" id="" placeholder="0.00" th:field="*{price}" required="">
               <div class="invalid-feedback">
                 Este campo es requerido.
               </div>
             </div>
             <div class="col-6 col-sm-6 mt-2">
               <label for="" class="form-label">Stock</label>
-              <input type="text" class="form-control" id="" placeholder="0" value="" required="">
+              <input type="text" class="form-control" id="" placeholder="0" th:field="*{stock}" required="">
               <div class="invalid-feedback">
                 Este campo es requerido.
               </div>
             </div>
             <div class="col-sm-12 mt-2">
               <label for="" class="form-label">Descripción</label>
-              <textarea rows="4" type="text" class="form-control" id="" placeholder="" value="" required=""></textarea>
+              <textarea rows="4" type="text" class="form-control" id="" placeholder="" th:field="*{description}"
+                required=""></textarea>
               <div class="invalid-feedback">
                 Este campo es requerido.
               </div>
             </div>
-            <div class="col-sm-12 mt-2">
+            <!-- <div class="col-sm-12 mt-2">
               <label for="" class="form-label">Categoria</label>
-              <input type="text" class="form-control" id="" placeholder="" value="" required="">
+              <input type="text" class="form-control" id="" placeholder="" required="">
               <div class="invalid-feedback">
                 Este campo es requerido.
               </div>
@@ -62,10 +64,19 @@
               <div class="invalid-feedback">
                 Este campo es requerido.
               </div>
+            </div> -->
+
+            <div class="mb-3">
+              <label for="formFile" class="form-label">Seleccione la imágen</label>
+              <input class="form-control" type="file" id="file-upload">
             </div>
-            <div class="col-sm-12 mt-2">
-              <button class="btn btn-primary">Guardar</button>
+
+            <div class="col-sm-12 mt-2 text-center">
+              <button class="btn btn-primary" type="submit">Guardar</button>
             </div>
+            <input class="hide" th:field="*{id}" th:value="*{id}"></input>
+            <input class="hide" th:field="*{status}" th:value="*{status}"></input>
+            <input class="hide" th:field="*{image_url}" th:value="*{image_url}"></input>
         </form>
 
       </div>

@@ -4,31 +4,38 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
+import com.storegamers.appweb.model.Cliente;
 import com.storegamers.appweb.model.Usuario;
 
 import com.storegamers.appweb.repository.UsuarioService;
+import com.storegamers.appweb.repository.ClienteRepository;
 import com.storegamers.appweb.repository.UsuarioRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.websocket.server.PathParam;
 
 @Controller
-//@RestController
+// @RestController
 public class UsuarioController {
 
     private static final String INDEX = "usuario/login";
     private static String MODEL_CONTACT = "user";
     private static String MODEL_MESSAGE = "mensaje";
+    private static final String INDEX_PERSONAL = "usuario/datospersonales";
     private final UsuarioRepository usuariosData;
+    private final ClienteRepository repoCliente;
 
-    public UsuarioController(UsuarioRepository usuariosData) {
+    public UsuarioController(UsuarioRepository usuariosData, ClienteRepository clienteRepository) {
         this.usuariosData = usuariosData;
+        this.repoCliente = clienteRepository;
     }
 
     @GetMapping("/usuario/login")
@@ -77,24 +84,53 @@ public class UsuarioController {
     }
 
     @GetMapping("/usuario/cambiocontrasenia")
-    public String cambiocontrasenia(Model model) {
+    public String cambiocontrasenia(Model model, HttpSession session) {
         Usuario usuario = new Usuario();
-        model.addAttribute("correo", usuario);
+        model.addAttribute("usuario", usuario);
         // request.getSession().invalidate();
+        Usuario user = (Usuario) session.getAttribute("user");
+        model.addAttribute("user", user);
+
+        if (user != null) {
+            model.addAttribute("perfil", user.getPerfil());
+        } else {
+            model.addAttribute("perfil", null);
+        }
+
         return "usuario/cambiocontrasenia";
     }
 
-    @Autowired
-    UsuarioService service;
+    // @Autowired
+    // UsuarioService service;
 
-    @PostMapping("/usuario/cambio")
-    public void newPassword(@RequestBody Usuario usuario, @RequestHeader("newPassword") String newP){
-        service.changePassword(newP,usuario.getPassword());
+    @PostMapping("/usuario/cambiocontrasenia")
+    public String newPassword(Model model, Usuario usuario, HttpSession session, RedirectAttributes redirect) {
+        // service.changePassword(newP, usuario.getPassword());
+        Usuario user = (Usuario) session.getAttribute("user");
+        usuario.setUserID(user.getUserID());
+        usuario.setPerfil(user.getPerfil());
+        usuariosData.save(usuario);
+        redirect.addFlashAttribute(MODEL_MESSAGE, "Contraseña actualizada");
+        return "redirect:/usuario/cambiocontrasenia";
     }
 
+    @GetMapping("/usuario/datospersonales")
+    public String datospersonales(Model model, HttpSession session) {
 
+        Usuario user = (Usuario) session.getAttribute("user");
+        model.addAttribute("user", user);
 
+        if (user != null) {
+            model.addAttribute("perfil", user.getPerfil());
+        } else {
+            model.addAttribute("perfil", null);
+        }
 
+        Cliente client = repoCliente.getUserFull(user);
+        model.addAttribute("usuario", client);
+
+        return INDEX_PERSONAL;
+    }
 
     // @PostMapping("/usuario/cambiocontrasenia")
     // public String createSubmitForm(Model model, @Valid Cliente cliente,

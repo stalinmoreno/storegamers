@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'home')}">
+
+<body>
+  <div class="container-fluid container-main">
+
+    <div class="container xd-container">
+
+      <div class="mt-3 mb-2 text-center">
+        <h4 class="text-subtitle">Lista de clientes</h4>
+      </div>
+
+      <div class="panel mt-3 p-3" style="max-width: 600px; margin:auto;">
+        <a href="/producto/index"><i class="fas fa-arrow-circle-left"></i></a>
+
+        <div class="text-center">
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody th:each="customer:${customers}">
+              <tr>
+                <th scope="row" th:text="*{customer.id}"></th>
+                <td th:text="*{customer.name}"></td>
+                <td th:text="*{customer.email}"></td>
+                <td>
+                  <a href="#" class="btn btn-primary">
+                    <i class="fas fa-user-edit" style="color:white;"></i></a>
+                  <a href="#" class="btn btn-danger">
+                    <i class="far fa-trash-alt" style="color:white;"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+
+
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+
+</body>
+
+</html>

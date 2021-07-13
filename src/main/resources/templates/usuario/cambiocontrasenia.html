@@ -3,44 +3,67 @@
 <html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'home')}">
 
 <body>
-      <div class="container-fluid container-main">
+  <div class="container-fluid container-main">
 
-        <div class="container xd-container">
-        <div class="row">
-          <div class="col-sm-10 mt-5">
-            <div class="form-group row">
-              <h1>Cambio de contraseña</h1>
-            </div>
-
-            <form th:object="${correo}" th:action="@{/usuario/cambiocontrasenia}" method="post">
-                
-                <div class="form-group row">
-                  <div class="col-sm-2">
-                    <label for="contraseniaanterior">Contraseña anterior</label>
-                  </div>
-                  <div class="col-sm-2">
-                    <input type="text" th:field="*{password}" />
-                  </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-2">
-                      <label for="nuevacontrasenia">Nueva contraseña</label>
-                    </div>
-                    <div class="col-sm-2">
-                      <input type="text" th:field="*{password}" />
-                    </div>
-                  </div>
-                <div class="form-group row">
-                  <div class="col-sm-2"></div>
-                  <div class="col-sm-2">
-                    <button th:with="text='CONFIRMAR'" class="btn btn-primary" type="submit" th:text="${text}" />
-                  </div>
-                </div>
-              </form>
-
-            </div>
+    <div class="container xd-container">
+      <div class="row">
+        <div class="mt-5">
+          <div class="row text-center">
+            <h4 class="text-subtitle">Cambio de contraseña</h4>
           </div>
+
+          <form class="panel" th:object="${usuario}" th:action="@{/usuario/cambiocontrasenia}" method="POST"
+            style="max-width: 300px; margin: auto;">
+            <a href="/"><i class="fas fa-arrow-circle-left"></i></a>
+            <div class="text-center mb-3">
+              <i class="fas fa-unlock-alt" style="font-size: 3rem;"></i>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <label for="contraseniaanterior">Contraseña anterior</label>
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-sm-12">
+                <label for="nuevacontrasenia">Nueva contraseña</label>
+                <input type="text" class="form-control" th:field="*{password}" />
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-ms-12 text-center">
+                <button class="btn btn-primary" type="submit">Confirmar</button>
+              </div>
+            </div>
+          </form>
+
         </div>
-</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="msj" class="hide" th:text="${mensaje}"></div>
+
+  <script th:src="@{/webjars/sweetalert2/dist/sweetalert2.min.js}"></script>
+  <script>
+
+    const msj = document.getElementById("msj").innerHTML;
+
+    if (msj != "") {
+
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: msj,
+        showConfirmButton: false,
+        timer: 1500
+      });
+
+    }
+
+
+  </script>
+
 </body>
+
 </html>

@@ -20,6 +20,7 @@ import com.storegamers.appweb.repository.ProformaRepository;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import java.math.BigDecimal;
 import java.security.Principal;
 import java.util.List;
 
@@ -30,7 +31,6 @@ public class ProformaController {
   private static String MODEL_PRODUCTO = "proforma";
   private final ProformaRepository proformaData;
   private final HomeController globalHome;
-  
 
   public ProformaController(ProformaRepository proformaData, HomeController globalHome) {
     this.proformaData = proformaData;
@@ -43,6 +43,10 @@ public class ProformaController {
     List<Proforma> listItems = this.proformaData.findAll();
     model.addAttribute("proformas", listItems);
 
+    // List<Producto> productos =
+    // carritos.stream().map(Carrito::getProducto).collect(Collectors.toList());
+    BigDecimal sumPrecio = listItems.stream().map(Proforma::getPrecio).reduce(BigDecimal.ZERO, BigDecimal::add);
+
     model.addAttribute("user", user);
     if (user != null) {
       model.addAttribute("perfil", user.getPerfil());
@@ -52,7 +56,7 @@ public class ProformaController {
 
     Integer total = globalHome.countItemsCarrito();
     model.addAttribute("proforma", total);
-
+    model.addAttribute("subtotal", sumPrecio);
     return INDEX;
   }
 
@@ -64,14 +68,12 @@ public class ProformaController {
 
   @GetMapping("/proforma/eliminar/{id}")
 
-  public String carritoEliminar(@PathVariable int  id,RedirectAttributes redirect) {
+  public String carritoEliminar(@PathVariable int id, RedirectAttributes redirect) {
     proformaData.deleteById(id);
-    // redirect.addFlashAttribute(MENSAJE, "EL producto se ha quitado del carrito de compras.");
+    // redirect.addFlashAttribute(MENSAJE, "EL producto se ha quitado del carrito de
+    // compras.");
 
     return "redirect:/proforma/index";
-}
-
-
-
+  }
 
 }

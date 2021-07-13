@@ -10,9 +10,8 @@ import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 
-
 @Repository
-public interface  UsuarioRepository extends JpaRepository<Usuario, String> {
+public interface UsuarioRepository extends JpaRepository<Usuario, String> {
     @Query(value = "select password from t_user where password = :oldPssw", nativeQuery = true)
     String searchPassword(@Param("oldPssw") String oldPssw);
 

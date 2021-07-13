@@ -21,25 +21,25 @@
                                 <div class="row">
                                     <div class="col-sm-4 col-md-3  d-flex justify-content-center">
                                         <div class="rounded float-start" style="max-width: 150px;">
-                                            <img class="image-responsive " src="../static/images/logo.png" th:src="${proforma.product.image_url}" 
-                                            style="width: 100%;"/>
+                                            <img class="image-responsive " src="../static/images/logo.png"
+                                                th:src="${proforma.product.image_url}" style="width: 100%;" />
 
-                                                <!-- <div class="card-image">
+                                            <!-- <div class="card-image">
                                                     <img class="img-responsive" src="../static/images/logo.png" th:src="${product.image_url}" />
                                                   </div> -->
 
-                                              <!-- <img class="img-responsive" src="../static/images/logo.png" th:src="${product.image_url}" />   -->
+                                            <!-- <img class="img-responsive" src="../static/images/logo.png" th:src="${product.image_url}" />   -->
 
-                                                <!-- <div th:each="product:${producto}" class="card-product">
+                                            <!-- <div th:each="product:${producto}" class="card-product">
                                                     <a th:href="@{'/catalogo/viewProduct/__${product.id}__'}">
                                                       <div class="card-image">
                                                         <img class="img-responsive" src="../static/images/logo.png" th:src="${product.image_url}" /> </div> -->
-                                                      
+
                                         </div>
                                     </div>
 
 
-  
+
 
 
 
@@ -52,13 +52,13 @@
                                                     <li class="list-group-item">
                                                         <h5> <span th:text="${proforma.product.name}"></span></h5>
                                                     </li>
-                                                    
+
                                                     <li class="list-group-item d-flex align-item-center">
                                                         <h6 class="mb-0">Precio: </h6>
                                                         <h5 class="mb-0"><span class="badge bg-light text-dark">S/.
-                                                                </span></h5>
+                                                            </span></h5>
 
-                                                                <span th:text="${proforma.Precio}*2"></span>
+                                                        <span th:text="${proforma.Precio}"></span>
                                                     </li>
                                                     <li class="list-group-item">
                                                         <div class="d-flex justify-content-between align-items-center">
@@ -66,11 +66,11 @@
                                                                 <h6 class="mb-0">Total: </h6>
                                                                 <h5 class="mb-0"><span
                                                                         class="badge bg-light text-dark">S/.
-                                                                        
-                                                                     
+
+
                                                                     </span></h5>
 
-                                                                    <span th:text="${proforma.Precio}"></span>
+                                                                <span th:text="${proforma.Precio}"></span>
 
                                                             </div>
                                                             <div class="col-md-4">
@@ -85,9 +85,9 @@
 
 
 
- 
 
-                                                    
+
+
 
 
                                             <div class="col-12 col-md-2 text-center mt-2">
@@ -95,9 +95,10 @@
                                                         class="far fa-trash-alt"></i>
                                                     </button> -->
 
-                                                    <a th:href="@{/proforma/eliminar/}+${proforma.id}" class="btn btn-outline-danger">
-                                                        <i class="far fa-trash-alt"></i>
-                                                    </a>
+                                                <a th:href="@{/proforma/eliminar/}+${proforma.id}"
+                                                    class="btn btn-outline-danger">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </a>
                                             </div>
                                         </div>
                                         <!-- <div class="row">BANDICOOT 4</div>
@@ -129,7 +130,7 @@
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Subtotal
-                                        <span class=""> S/. 79.90</span>
+                                        <span class="" th:text="'S/. ' +${subtotal}"></span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Despacho
@@ -137,16 +138,17 @@
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center pt-3">
                                         <h5 class="mb-0">Total</h5>
-                                        
-                                        <h5 class="mb-0"><span class="">S/. 89.90</span></h5>
-                                        
+
+                                        <h5 class="mb-0"><span class="" th:text="'S/. ' + (${subtotal} + 10)"></span>
+                                        </h5>
+
                                     </li>
                                 </ul>
-                                
+
                             </div>
                         </div>
                         <p class="text-center mt-3">
-                            <a href= "/pago/create" type="button" class="btn btn-primary">Confirmar compra</a>
+                            <a href="/pago/create" type="button" class="btn btn-primary">Confirmar compra</a>
 
 
                         </p>
@@ -157,7 +159,37 @@
         </div>
     </div>
 
+    <div id="msj" class="hide" th:text="${mensaje}"></div>
 
+    <script th:src="@{/webjars/sweetalert2/dist/sweetalert2.min.js}"></script>
+    <script>
+
+        const msj = document.getElementById("msj").innerHTML;
+
+        if (msj != "") {
+
+            Swal.fire({
+                icon: 'info',
+                title: msj,
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                },
+                confirmButtonColor: '#0057FF',
+                showCancelButton: true,
+                confirmButtonText: 'Iniciar Sesión',
+                cancelButtonText: 'En otro momento',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "http://localhost:8080/usuario/login";
+                }
+            })
+
+        }
+
+    </script>
 
 </body>
 

@@ -20,7 +20,8 @@
               <div class="mb-3 row">
                 <div class="col-md-12">
                   <div class="text-center d-flex justify-content-center">
-                    <img class="img-responsive img-product" src="../static/images/logo.png" th:src="*{image_url}" />
+                    <img id="img-preview" class="img-responsive img-product" src="../static/images/logo.png"
+                      th:src="*{image_url}" />
                   </div>
                 </div>
               </div>
@@ -77,7 +78,7 @@
 
               <div class="mb-3">
                 <label for="formFile" class="form-label">Seleccione la imágen</label>
-                <input class="form-control" type="file" id="formFile">
+                <input class="form-control" type="file" id="file-upload">
               </div>
 
               <div class="mb-3 row">
@@ -90,9 +91,9 @@
           </div>
         </div>
 
-        <input class="hiden" th:field="*{id}"></input>
-        <input class="hiden" th:field="*{status}"></input>
-        <input class="hiden" th:field="*{image_url}"></input>
+        <input class="hide" th:field="*{id}"></input>
+        <input class="hide" th:field="*{status}"></input>
+        <input class="hide" th:field="*{image_url}"></input>
 
       </form>
 
@@ -143,6 +144,27 @@
       </div>
     </div>
   </div>
+
+  <div id="msj" class="hide" th:text="${mensaje}"></div>
+
+  <script th:src="@{/webjars/sweetalert2/dist/sweetalert2.min.js}"></script>
+  <script>
+
+    const msj = document.getElementById("msj").innerHTML;
+
+    if (msj != "") {
+
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: msj,
+        showConfirmButton: false,
+        timer: 1500
+      });
+
+    }
+
+  </script>
 
 </body>
 

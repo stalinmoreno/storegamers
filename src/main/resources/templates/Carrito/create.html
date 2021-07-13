@@ -1,50 +1,50 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org"
-      th:replace="~{fragment/fragment :: fragment (~{::body},'carrito')}">
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragment/fragment :: fragment (~{::body},'carrito')}">
 
 <body>
-<div class="container h-100">
-    <div class="electroplus__items py-4 d-flex flex-column h-100">
-        <div class="d-flex justify-content-between border-bottom pb-2">
-            <label class="electroplus__items_title" style="font-weight: 900"
-            >CARRITO DE COMPRAS</label>
+    <div class="container h-100">
+        <div class="electroplus__items py-4 d-flex flex-column h-100">
+            <div class="d-flex justify-content-between border-bottom pb-2">
+                <label class="electroplus__items_title" style="font-weight: 900">CARRITO DE COMPRAS</label>
 
-        </div>
-        <div class="row no-gutters">
-            <div class="col-6 col-sm-4 col-md-3" th:each="carrito : ${carritos}">
-                <div class="card border-0">
-                    <div class="d-flex justify-content-center">
-                        <div class="card-imagen">
-                            <img th:src="${carrito.producto.imagen}" class="card-img-top">
+            </div>
+            <div class="row no-gutters">
+                <div class="col-6 col-sm-4 col-md-3" th:each="carrito : ${carritos}">
+                    <div class="card border-0">
+                        <div class="d-flex justify-content-center">
+                            <div class="card-imagen">
+                                <img th:src="${carrito.producto.imagen}" class="card-img-top">
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <h5 class="card-title item-titulo text-uppercase text-truncate"
+                                th:text="${carrito.product.nombre}"></h5>
+                            <p class="card-text item-descripcion text-truncate-2"
+                                th:text="${carrito.producto.descripcion}"></p>
+                            <p class="item-descuento" th:text="'S/. ' + ${carrito.descuento}"></p>
+                            <p class="item-precio" th:text="'S/. ' + ${carrito.precio}"></p>
+                            <a th:href="@{/carrito/eliminar/}+${carrito.id}" class="btn btn-block btn-primary">
+                                Eliminar producto
+                            </a>
                         </div>
                     </div>
-                    <div class="card-body p-0">
-                        <h5 class="card-title item-titulo text-uppercase text-truncate"
-                            th:text="${carrito.product.nombre}"></h5>
-                        <p class="card-text item-descripcion text-truncate-2" th:text="${carrito.producto.descripcion}"></p>
-                        <p class="item-descuento" th:text="'S/. ' + ${carrito.descuento}"></p>
-                        <p class="item-precio" th:text="'S/. ' + ${carrito.precio}"></p>
-                        <a th:href="@{/carrito/eliminar/}+${carrito.id}" class="btn btn-block btn-primary">
-                            Eliminar producto
+                </div>
+            </div>
+            <div class="mt-auto w-100 fixed-bottom py-2">
+                <div class="d-flex justify-content-around align-items-center">
+                    <div class="px-3">
+                        <p class="text-one-70 text-white">Total</p>
+                        <small class="" th:text="'S/. ' + ${subtotal}"></small>
+                    </div>
+                    <div>
+                        <a class="btn btn-primary" style="margin-top: -8px" href="/pago/create">
+                            Procesar Compra
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="mt-auto w-100 electroplus__navbar fixed-bottom py-2">
-            <div class="d-flex justify-content-around align-items-center">
-                <div class="px-3">
-                    <p class="text-one-70 text-white">Total</p>
-                    <small class="electroplus__cabecera_title text-one text-white" th:text="'S/. ' +${total}"></small>
-                </div>
-                <div>
-                    <a class="btn btn-primary btn-block"  style="margin-top: -8px" href="/pago/create">
-                        Procesar Compra
-                    </a>
-                </div>
-            </div>
-        </div>
     </div>
-</div>
 </body>
+
 </html>

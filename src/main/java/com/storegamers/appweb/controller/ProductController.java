@@ -47,18 +47,46 @@ public class ProductController {
     return INDEX;
   }
 
-  @PostMapping("/producto/create")
+  @GetMapping("/producto/create")
   public String create(Model model, HttpSession session) {
+
     Product producto = new Product();
-    model.addAttribute("nuevo_producto", producto);
+    producto.setImage_url("https://i.linio.com/p/fe4b7f2cd0a664d8fe425ebb44de914a-product.webp");
+    producto.setStatus(1);
+    model.addAttribute("product", producto);
+
     Usuario user = (Usuario) session.getAttribute("user");
+
     model.addAttribute("user", user);
+
     if (user != null) {
       model.addAttribute("perfil", user.getPerfil());
     } else {
       model.addAttribute("perfil", null);
     }
-    return INDEX_EDIT;
+    return INDEX_CREATE;
+  }
+
+  @PostMapping("/producto/create")
+  public String createSubmitForm(Model model, @Valid Product objProduct, HttpSession session,
+      RedirectAttributes redirect) {
+
+    productosData.save(objProduct);
+
+    Usuario user = (Usuario) session.getAttribute("user");
+
+    model.addAttribute("user", user);
+
+    if (user != null) {
+      model.addAttribute("perfil", user.getPerfil());
+    } else {
+      model.addAttribute("perfil", null);
+    }
+
+    redirect.addFlashAttribute(MODEL_MESSAGE, "Producto grabado exitosamente");
+
+    return "redirect:/" + INDEX;
+
   }
 
   @PostMapping("/producto/update")

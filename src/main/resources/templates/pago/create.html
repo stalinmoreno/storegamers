@@ -1,122 +1,131 @@
 <!DOCTYPE html>
 
-<html xmlns:th="https://www.thymeleaf.org" 
-    th:replace="~{fragments/layout :: layout (~{::body},'payment')}">
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'payment')}">
 
 <body>
- 
-    <div class="container">
 
-        <div class="row">
-          <div class="col-sm-10 mt-5">
-            <div class="form-group row">
-              <h1>Realizar Pago</h1>
-            </div>
-            <form th:object="${pago}" th:action="@{/pago/create}" method="post">
-              <div class="form-group row">
+  <div class="container-fluid container-main">
 
-                <!-- cambio de clienteId * cliente_id -->
+    <div class="container xd-container">
 
-                <input type="hidden" th:field="*{clienteId}"/>
-                <div class="col-sm-2">
-                  <span i class="fas fa-pager"></i></i></span>
-                  <label for="nombreTarjeta">Nombre Tarjeta </label>
-                  
-                </div>
-                
-                <div class="col-sm-2">
-                  <input type="text" th:field="*{nombreTarjeta}" class="form-control" placeholder="Ingrese tu Tarjeta"/>
-                </div>
-              </div>  
-              
-              <!-- --------------------- -->
+      <div class="mt-3 mb-2 text-center d-flex align-items-center justify-content-center">
+        <a href="/proforma/index" style="font-size: 1.8rem; color: #2e3a59;margin-right: 10px;"><i
+            class="fas fa-arrow-circle-left"></i></a>
+        <h4 class="text-subtitle">Pagar compra</h4>
+      </div>
 
-              <!-- <div class="input-group mb-3 mt-4">
-                <span class="input-group-text"><i class="fas fa-pager"></i></i></span>
-                <input type="text" th:field="*{userID}" class="form-control" placeholder="Ingrese su usuario"
-                  aria-label="Username" aria-describedby="basic-addon1">
-              </div> -->
+      <form class="panel" th:object="${pago}" th:action="@{/pago/create}" method="post"
+        style="max-width: 350px; margin: auto;">
+        <div class="row mt-3">
 
+          <!-- cambio de clienteId * cliente_id -->
 
+          <input type="hidden" th:field="*{clienteId}" />
 
-             <div class="form-group row">
-                <div class="col-sm-2">
-                  <!-- <span i class="fas fa-pager"></i></i></span> -->
-                  <label for="numeroTarjeta">Numero Tarjeta</label>
-                </div>
-                <div class="col-sm-2">
-                  <input type="text" th:field="*{numeroTarjeta}" data-inputmask="'mask': '9999-9999-9999-9999'" />
-                </div>
-              </div>              
-              <div class="form-group row">
-                <div class="col-sm-2">
-                  <label for="dueDateYYMM">Vencimiento</label>
-                </div>
-                <div class="col-sm-2">
-                  <input type="text" data-inputmask="'mask': '99/99', 'placeholder': 'yy/mm'" th:field="*{dueDateYYMM}" />
-                </div>
-              </div>
-              <div class="form-group row">
-                <div class="col-sm-2">
-                  <label for="cvv">CVV</label>
-                </div>
-                <div class="col-sm-2">
-                  <input type="text" th:field="*{cvv}" data-inputmask="'mask': '999', 'placeholder': '999'"/>
-                </div>
-              </div>
-              <div class="form-group row">
-                <div class="col-sm-2">
-                  <label for="cvv">montoTotal</label>
-                </div>
-
-
-
-                <div class="col-sm-2">
-                  <input type="text" th:field="*{montoTotal}" id="currency" data-thousands="," data-decimal="." />
-                </div>
-              </div>  
-
-              <div class="form-group row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-2">
-                
-                  <button th:with="text='Pagar'" class="btn btn-primary btn-block" 
-                  style="margin-top: 8px" href="/catalogo/viewProduct" type="submit" th:text="${text}"/>
-
-                  <!-- <div>
-                    <a class="btn btn-primary btn-block"  style="margin-top: -8px" href="/pago/create">
-                        Procesar Compra
-                    </a>
-                  </div> -->
-
-                </div>
-              </div>
-            </form>
-            <p th:text="${mensaje}" />
+          <div class="col-sm-12">
+            <span i class="fas fa-pager"></i></i></span>
+            <label for="nombreTarjeta">Nombre Tarjeta </label>
+            <input type="text" th:field="*{nombreTarjeta}" class="form-control" placeholder="Ingresar titular" />
           </div>
         </div>
-      </div>
-    
-      <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-      <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
-      <script th:src="@{/webjars/bootstrap-datepicker/js/bootstrap-datepicker.min.js}"></script>
-      <script th:src="@{/webjars/jquery.inputmask/jquery.inputmask.min.js}"></script>    
-      <script th:src="@{/webjars/jquery-maskmonet/dist/jquery.maskMoney.min.js}"></script>    
 
-      <script>
-        $('.input-group.date').datepicker({
-          autoclose: true,
-          todayHighlight: true
-        });
-      </script>
-      <script>
-        $(":input").inputmask();
-      </script>
-      <script>
-        $(function() {
-          $('#currency').maskMoney();
-        })
-      </script>
+        <div class="row mt-3">
+          <div class="col-sm-12">
+            <label for="numeroTarjeta">Numero Tarjeta</label>
+            <input type="text" class="form-control" th:field="*{numeroTarjeta}"
+              data-inputmask="'mask': '9999-9999-9999-9999'" placeholder="Ingresar Nro. tarjeta" />
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-sm-12">
+            <label for="dueDateYYMM">Vencimiento</label>
+            <input type="text" class="form-control" placeholder="yy/mm" data-inputmask="'mask': '99/99'"
+              th:field="*{dueDateYYMM}" />
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-sm-12">
+            <label for="cvv">CVV</label>
+            <input type="text" class="form-control" th:field="*{cvv}" placeholder="000"
+              data-inputmask="'mask': '999'" />
+          </div>
+        </div>
+        <!-- <div class="row mt-3">
+          <div class="col-sm-12">
+            <label for="cvv">montoTotal</label>
+            <input type="text" placeholder="00.00" class="form-control" th:field="*{montoTotal}" id="currency"
+              data-thousands="," data-decimal="." />
+          </div>
+        </div> -->
+
+        <div class="row mt-3">
+          <div class="col-sm-12">
+            <button th:with="text='Pagar'" class="btn btn-primary" type="submit">Pagar</button>
+          </div>
+        </div>
+      </form>
+
+      <div id="msj" class="hide" th:text="${mensaje}"></div>
+
+
+    </div>
+  </div>
+
+  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+  <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+  <script th:src="@{/webjars/bootstrap-datepicker/js/bootstrap-datepicker.min.js}"></script>
+  <script th:src="@{/webjars/jquery.inputmask/jquery.inputmask.min.js}"></script>
+  <script th:src="@{/webjars/jquery-maskmonet/dist/jquery.maskMoney.min.js}"></script>
+
+
+  <script th:src="@{/webjars/sweetalert2/dist/sweetalert2.min.js}"></script>
+  <script>
+
+    const msj = document.getElementById("msj").innerHTML;
+
+    if (msj != "") {
+
+      // Swal.fire({
+      //   position: 'top-end',
+      //   icon: 'success',
+      //   title: msj,
+      //   showConfirmButton: false,
+      //   timer: 1500
+      // });
+
+      Swal.fire({
+        icon: 'success',
+        title: msj,
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        },
+        showCancelButton: false,
+        confirmButtonColor: '#0057FF',
+        confirmButtonText: 'Ok',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = "http://localhost:8080/";
+        }
+      })
+
+    }
+
+    $('.input-group.date').datepicker({
+      autoclose: true,
+      todayHighlight: true
+    });
+
+
+    $(":input").inputmask();
+
+
+    $(function () {
+      $('#currency').maskMoney();
+    })
+  </script>
 </body>
 
 </html>
