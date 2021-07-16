@@ -51,7 +51,7 @@ public class ProductController {
   public String create(Model model, HttpSession session) {
 
     Product producto = new Product();
-    producto.setImage_url("https://i.linio.com/p/fe4b7f2cd0a664d8fe425ebb44de914a-product.webp");
+
     producto.setStatus(1);
     model.addAttribute("product", producto);
 
